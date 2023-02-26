@@ -1,0 +1,89 @@
+/* SELECTORES */
+
+/* 
+  Selectores Simples
+    Selectores elementales
+      Selector universal -> *
+      Selector de tipo o etiqueta -> Nombre de la etiqueta
+    Selectores de atributo
+      id -> id del elemento
+      clase -> clase del elemento
+      otros atributos
+        [atributo]
+        [atributo=valor] -> seleccionar el atributo cuyo valor es exactamente la palabra
+        [atributo^=valor] -> seleccionar el atributo cuyo el valor del atributo inicia con la palbra especificada
+        [atributo*=valor] -> seleccionar el aatributo cuyo el valor del atributo contiene la palabra especificada
+        [atributo$=valor] ->  seleccionar el atributo cuyo el valor del atributo termina con la palabra especificada
+        [atributo|=valor] -> seleccionar el atributo cuyo valor empieza con (la palabra especificada o la palabra especificada más un guión)
+  Selectores compuestos
+    Selectores agrupados
+    Selectores combinadores
+    Pseudoclases - Pseudoelementos
+*/
+
+/* 
+* {
+  background-color: lightcoral;
+}
+
+h1 {
+  background-color: lightcyan;
+}
+
+p {
+  background-color: lightgreen;
+}
+
+ul {
+  background-color: red;
+}
+
+li {
+  background-color: blue;
+} 
+*/
+
+/* 
+#title {
+  background-color: green;
+}
+
+.title {
+  background-color: lightsalmon;
+}
+
+.text {
+  background-color: limegreen;
+}
+*/
+
+[href] {
+  background-color: mediumorchid;
+}
+
+[href="https://google.com"] {
+  background-color: orangered;
+}
+
+[href^="color"] {
+  background-color: yellow;
+}
+
+[href*="modo"] {
+  background-color: green;
+}
+
+[href$="azul"] {
+  background-color: steelblue;
+}
+
+[lang|="en"] {
+  background-color: magenta;
+}
+
+
+
+
+
+
+

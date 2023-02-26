@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    Forma recomendad de importar un archivo css, puesto que permite
+    que la hoja de estilos como el html, se actualicen en paralelo,
+    de forma que ves el cambio de inmediato.
+  -->
+  <!--link rel="stylesheet" href="css/styles.css"-->
+  <title>Document</title>
+
+  <!--
+    Forma recomendada de aplicar estilos a las etiquetas HTMl, pero solo 
+    en casos especfíficos como en el envío de plantilla de correo, en donde
+    los estilos lo has de poner en el mismo archivo html.
+  -->
+  <style>
+    /*body {
+      background-color: steelblue;
+    }*/
+
+    /*
+     Forma no recomendada de importar una hoja de estilos. Puesto 
+     que a diferencia de la etiqueta link. Este no permite una actualización paralela,
+     por lo que ha de esperar que se descargen los nuevos cambios realizados en la hoja
+     de estilos, para luego recién aplicarlo al archivo html. Por lo que no apreciarás el
+     cambio inmediatamente.
+    */
+    @import url(css/styles.css);
+  </style>
+</head>
+<body>
+  <!--
+    Forma no recomendada de aplicar estilos a las etiquetas HTML
+  -->
+  <h1 style="background-color: springgreen;">Conectar HTML y CSS</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima tempore cum dolorem molestiae, dicta magni corporis debitis asperiores modi voluptates illo cupiditate esse non! Fugiat, officiis. Suscipit dolorem laudantium natus?
+  </p>
+</body>
+</html>
