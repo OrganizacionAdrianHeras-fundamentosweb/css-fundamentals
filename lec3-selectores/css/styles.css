@@ -16,16 +16,22 @@
         [atributo$=valor] ->  seleccionar el atributo cuyo el valor del atributo termina con la palabra especificada
         [atributo|=valor] -> seleccionar el atributo cuyo valor empieza con (la palabra especificada o la palabra especificada más un guión)
   Selectores compuestos
-    Selectores agrupados
+    Selectores agrupados -> se agrupan los selectores
     Selectores combinadores
+      Selector descendiente -> seleciona los hijos de un elemento sin importar en que subnivel se encuentren.
+      Selector de hijo directo -> selecciona solo los hijos directos. Es decir, los que se encuentran en el subnivel más cercano al elemento.
+      Selector de hermano siguiente directo + -> selecciona el hermano siguiente directo que se encuentra al mismo nivel, que coincide con la selección
+      Selector de hermanos siguientes ~ > selecciona todos los hermanos siguientes (no necesariamente directos) que se encuentran al mismo nivel, que coinciden con la selección
     Pseudoclases - Pseudoelementos
 */
 
 /* 
+Selector universal
 * {
   background-color: lightcoral;
 }
 
+Selectores de tipo o etiqueta
 h1 {
   background-color: lightcyan;
 }
@@ -44,10 +50,16 @@ li {
 */
 
 /* 
+Selectores de id
 #title {
   background-color: green;
 }
 
+h2#title {
+  background-color: green;
+}
+
+Selectores de clase
 .title {
   background-color: lightsalmon;
 }
@@ -55,8 +67,14 @@ li {
 .text {
   background-color: limegreen;
 }
+
+p.text {
+  background-color: limegreen;
+}
 */
 
+/*
+Selectores de atributo
 [href] {
   background-color: mediumorchid;
 }
@@ -79,9 +97,46 @@ li {
 
 [lang|="en"] {
   background-color: magenta;
+} 
+*/
+
+/*
+Selectores agrupados
+.text,
+.text-2,
+.text-3,
+.text-4 {
+  background-color: steelblue;
 }
+*/
 
+/*
+Selectores descendientes
+div h2 {
+  background-color: red;
+}
+*/
 
+/*
+Selector de hijo directo
+.container > p {
+  background-color: tomato;
+}
+*/
+
+/*
+Selector de hermano siguiente
+.title-2 + .text-3 {
+  background-color: red;
+}
+*/
+
+/*
+Selectores de hermanos siguientes
+.text-2 ~ p {
+  background-color: teal;
+}
+*/
 
 
 
