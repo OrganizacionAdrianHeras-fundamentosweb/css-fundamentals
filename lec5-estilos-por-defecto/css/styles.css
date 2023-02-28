@@ -1,0 +1,16 @@
+body {
+  background-color: #333;
+}
+
+h1 {
+  color: cyan;
+  font-size: 10px;
+}
+
+.list {
+  color: indianred;
+}
+
+.list-item-extra {
+  color: initial;
+}
