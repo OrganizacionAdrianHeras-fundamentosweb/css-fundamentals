@@ -1,0 +1,84 @@
+/*
+  Los márgenes verticales colapsan. Es decir que el margen vertical (top o bottom) entre elementos contenedores, no se adicionan. Sino que que trabajan con un mismo espacio.
+  Por eso es recomendable definir solamente el margin-bottom:; en cada elemento. Saldo, el primer elemento hijo del
+  contenedor, que aadicionalmente debe tener declarado el margin-top:;
+
+  Por otro lado, el margen vertical (top o bottom) de un elemento hijo actuará como si fuera el margen vertical del
+  contenedor padre, siempre y cuando no se defina un padding en el contenedor padre.
+  Generalmente el artificio es poner un padding vertical con un valor mínimo (Ejem: padding-top:0.1px;) con el fin
+  de que el elemento hijo detecte que el elemento padre tiene un padding y por ende el margen del elemento hijo trabajará
+  dentro del contedor padre y no como si fuera el margen del contenedor padre.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: white;
+}
+
+.header {
+  background-color: lightcoral;
+  height: 100px;
+  margin-bottom: 20px;
+  padding-top: 0.1px;
+}
+
+.title {
+  background-color: red;
+}
+
+.box-1,
+.box-2 {
+  background-color: lightcyan;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box-1 {
+  margin-bottom: 30px;
+}
+
+.box-2 {
+  margin-bottom: 30px;
+}
+
+.box-3 {
+  background-color: blue;
+  width: 300px;
+  height: 490px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding-top: 0.1px;
+}
+
+.box-4 {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  margin-left: inherit;
+  margin-right: inherit;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.box-5 {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  margin-left: inherit;
+  margin-right: inherit;
+}
+
+.box-p,
+.box-p2 {
+  background-color: yellow;
+  width: inherit;
+  height: inherit;
+}
