@@ -1,6 +1,8 @@
 /*
   Text-align: es la propiedad que nos permite alinear horizontalmente el contenido de un elemento de bloque.
-  El contenido del elemento a alinear debe ser un elemento de línea.
+  El contenido del elemento a alinear debe ser un elemento de línea. O en todo caso si el elemento hijo es un
+  elemento de bloque, este a de heredar el valor del text-align, de forma que pueda ya se pueda centrar el contenido 
+  del elemento de bloque hijo.
 
   Acepta 4 posibles valores:
     text-align: left; -> Alinea el contenido a la izquierda
