@@ -9,7 +9,10 @@
     inline-block -> Hace que el elemento sea de línea pero admite medidas.
       Como por ejemplo: width, height, margin-bottom, margin-top. Sin embargo
       no permite el uso de margin-(left/rigth): auto; 
-    y márgenes verticales.
+      y márgenes verticales.
+  
+      La imagen, el audio y el video por defecto tiene el display como inline-block. 
+      El cambiar el display a inline no hará efecto sobre este, en cambio el block sí.
 */
 * {
   box-sizing: border-box;

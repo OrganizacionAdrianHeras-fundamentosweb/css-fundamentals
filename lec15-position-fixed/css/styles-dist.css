@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: white;
+  padding-top: 50px;
+}
+
+.header {
+  text-align: center;
+  background-color: lightskyblue;
+  color: orangered;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.link {
+  background-color: lightcoral;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  top: 0;
+}

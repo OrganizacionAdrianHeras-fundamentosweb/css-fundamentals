@@ -9,8 +9,6 @@
     text-align: right; -> Alinea el contenido a la derecha
     text-align: center; Alinea el contenido al centro
     text-align: justify; -> Alinea el contenido de forma justificada. Nos es recomendable usarlo.
-
-  La imagen por defecto tiene el display como inline-block, por lo que el text-align no funciona en este.
 */
 * {
   box-sizing: border-box;

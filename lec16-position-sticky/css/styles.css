@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.header {
+  background-color: lightskyblue;
+  text-align: center;
+  color: orangered;
+  height: 100px;
+  overflow: hidden;
+  /* position: sticky; */
+  /* top: 0; */
+}
+
+.menu {
+  /* background-color: red; */
+  position: sticky;
+  top: 0;
+}
+
+.article-title {
+  background-color: #333;
+  position: sticky;
+  top: 0;
+}
+
+article {
+  outline: 1px solid red;
+}
+
+span {
+  background-color: gray;
+  position: sticky;
+  top: 0;
+}

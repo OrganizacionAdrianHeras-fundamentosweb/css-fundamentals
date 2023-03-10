@@ -1,6 +1,7 @@
 /*
-  Los márgenes verticales colapsan. Es decir que el margen vertical (top o bottom) entre elementos contenedores, no se adicionan. Sino que que trabajan con un mismo espacio.
-  Por eso es recomendable definir solamente el margin-bottom:; en cada elemento. Saldo, el primer elemento hijo del
+  Los márgenes verticales colpsan entre elementos de caja Es decir que el margen vertical (top o bottom) entre elementos 
+  contenedores, no se adicionan. Sino que que trabajan con un mismo espacio.
+  Por eso es recomendable definir solamente el margin-bottom:; en cada elemento. A excepción, el primer elemento hijo del
   contenedor, que aadicionalmente debe tener declarado el margin-top:;
 
   Por otro lado, el margen vertical (top o bottom) de un elemento hijo actuará como si fuera el margen vertical del
