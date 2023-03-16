@@ -27,7 +27,7 @@
   z-index -> Nos permite mover el elemento en el contexto de apilamiento (eje x)
 
   NOTA: Si a un elemento le declaramos la propiead top  y/o left, las propieades bottom y/o right no
-  funcionarán.
+  funcionarán. Esto no se cumplirá si el elemento tiene position absolute o fixed y no tiene una medida de ancho y alto definido.
 
   Los posibles valores que le podemos dar a position son.
     Static -> Es el valor que tiene por defecto un elemento, con este valor el elemento NO ESTÁ POSICIONADO
@@ -38,11 +38,12 @@
 
     Absolute -> El elemento perderá sus medidas y su espacio reservado. Si lo movemos usará el elemento padre
     posicionado (que tenga definido la propiead position con valor dinstinto de static) como referencia. 
-    Si no tiene ninguno, usará el elemento HTML como referencia para su posicionamiento.
+    Si no tiene ninguno, usará el elemento HTML(VIEWPORT) como referencia para su posicionamiento.
     Además si es aplicado a un elemento de línea lo convertirá a un contexto de bloque para poder darle medidas.
 
     Fixed -> El elemento perderá sus medidas y su espacio reservado. Si lo movemos usará siempre el elemento HTML 
-    como referencia para su posicionamiento. Además, si es aplicado a un elemento de línea lo convertirá a un contexto
+    (VIEWPORT) como referencia para su posicionamiento.
+    Además, si es aplicado a un elemento de línea lo convertirá a un contexto
     de bloque para poder darle medidas. 
     
     Cabe resaltar, que el elemento se quedará fijo en esa posición aunque hagamos scroll.
@@ -55,8 +56,8 @@
     Cabe resaltar que cuando pase a tener un comportamiento fixed, se quedará fijado en el punto señalado, recorriendo el
     alto del elemento contenedor padre, siempre y cuando siga teniendo contenido.
     
-    Por otro lado el fijado no funcionará si es que en el elemento contenedor padre se encuentra definido la propiead scroll
-    con un valor distinto de visible.
+    Por otro lado el fijado no funcionará si es que en el elemento contenedor padre se encuentra definido la propiedad
+    scroll con un valor distinto de visible.
 
 */
 * {

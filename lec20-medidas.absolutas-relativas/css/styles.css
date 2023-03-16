@@ -1,0 +1,122 @@
+/*
+  Las medidas en CSS se pueden agregar en 2 grupos, absolutas y relativas.
+
+  las medidas absolutas NO CAMBIAN y siempre mantendrán su tamaño independientemente
+  del dispositivo o la interacción del usuario.
+  La más usada es px (píxeles) cuya medida es 1/96 de 1in, pero existen otras como:
+    cm(centímetros) -> 1cm = 96px/2,54
+    mm(milímetros) -> 1mm = 1/10 de 1cm
+    Q(cuarto de milímetro) -> 1Q = 1/40 de 1cm
+    in(inches, pulgadas) -> 1in = 2,54cm = 96px
+    pc(picas) -> 1pc = 1/16 de 1in
+    pt(puntos) -> 1pt = 1/72 ed 1in
+
+  Las medidas relativas SIEMPRE dependen de un contexto son las que se recomienda
+  utilizar en la gran mayoría de ocasiones porque nos van a permitir que todos los
+  elementos escalen proporcionalmente.
+  Las más usadas som em, rem, %, vw, vh, vmin y vmax aunque tenemos otras como:
+    ex -> Altura x de la fuente del elemento
+    ch -> La medida del ancho del glifo "0" de la letra del elemento
+    lh -> Altura de la línea del elemento.
+  
+  rem -> Corresponde a la medida de la "m" de la nariz del documento (html)
+  Donde: 1rem = 16px
+
+  El estándar del tamaño de la fuente por defecto en la raíz del documento
+  es 16px, y NO ES RECOMENDABLE MODIFICARLO.
+
+  Se recomienda usar siempre "rem" para tamaños de fuente
+
+  em -> Corresponde a la medida de la "m" del contexto donde nos encontremos.
+
+  Por defecto tomará la medida de la raíz del documento.
+  Donde: 1em = 16px
+  Pero si alguno de los contextos padre o enclusive el mismo, tiene definido una medida absoluta en la propiedad font-size
+  Por ejemplo: font-size: 5px;
+  Entonces se basará en este para calcular la medida de "em"
+  Donde: 1em = 5px
+
+  Se recomienda usar "em" si las medidas que se establecen sobre el box model debe crecer proporcionalmente al tamaño del texto
+
+  NOTA: Tanto "em" como "rem" se calcula en base a la propiedad font-size (tamaño de la fuente)
+
+  WIDTH
+    % -> Cuando usamos porcentage usamos de referencia el tamaño del contenedor y el navegador calcula ese porcentage.
+  Esto ocurre cuando usamos transform.
+
+    auto -> cuando usamos auto le pedimos al navegador que calcule en función del espacio disponible.
+      El width: auto; no funciona en elementos de inline-block.
+
+  HEIGHT
+    % -> Cuando estamos dentro de un contenedor, ese tiene que tener un alto declarado, si no no podrá calcular el porcentaje. Si se le
+    aplica una medida con porcentaje se sustituirá automáticamente por auto.
+
+    auto -> Cuando utilizamos auto el alto lo calculará el navegador en base al contenido del elemento.
+  
+    NOTA:
+      Height es una propiedad que teneís que usar con mucho cuidado. Si no es necesario establecer un alto, dejad que el contenido sea
+      el que decida el alto del elemento.
+
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* font-size: 10px; */
+  /* font-size: 20px; */
+  background-color: #333;
+  color: lightcoral;
+}
+
+/* .title {
+  font-size: 3rem;
+} */
+
+/* .lista {
+  font-size: 5px;
+} */
+
+/* .lista > li {
+  font-size: 3em;
+} */
+
+/* .link {
+  background-color: lightcoral;
+  color: #333;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  font-size: 3rem;
+  display: inline-block;
+} */
+
+/* .link2 {
+  background-color: cyan;
+  color: #333;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 3rem;
+  display: inline-block;
+} */
+
+.box {
+  /* margin: 0 50px; */
+  /* margin: 0 50px; */
+  /* width: 200px; */
+  /* padding-bottom: 30px; */
+  width: 300px;
+  height: 300px;
+  background-color: lightgreen;
+}
+
+.box-childrem {
+  /* margin-left: 100px; */
+  /* width: auto; */
+  /* height: auto; */
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 50%;
+  background-color: lightseagreen;
+}

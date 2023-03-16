@@ -1,14 +1,11 @@
 /*
-  z-index -> Es la propiedad que nos permite ordenas los elementos superpuestos para controlar cual se coloca por
+  z-index -> Es la propiedad que nos permite ordenar los elementos superpuestos para controlar cual se coloca por
   delante y cual por detrás.
-  
-  Poner z-index auto, es lo mismo que no poner nada, puesto que es el valor por defecto.
 
-  A la hora de dar valores al z-index, es recomendable pasar número grandes, para tener un amplio rango de números
+  * Para utilizar esta propiedad el elemento debe estar posicionado.
+  * Poner z-index auto, es lo mismo que no poner nada, puesto que es el valor por defecto.
+  * A la hora de dar valores al z-index, es recomendable pasar número grandes, para tener un amplio rango de números
   con los cuales jugar en caso necesitara que un nuevo elemento se encuentre por debajo o encima de uno existente.
-
-  Si dos elementos del mismo nivel, por alguna razón se llegan a superponer, pues siempre y cuando tengan el mismo
-  valor de z-index, el elemento que se pondrá encima, será aquel que en el html se encuentre declarado después que el otro.
 
   Si deseas que un elemento hijo se coloque detrás de su elemento contenedor padre, debes hacer dos cosas:
     * el elemento hijo debe tener declarado el atributo z-index con un valor negativo
