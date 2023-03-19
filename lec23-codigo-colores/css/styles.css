@@ -1,0 +1,69 @@
+/*
+  Colores
+    La mayoría las pantallas funcionan con un modo de color aditivo,
+    La suma de RGB da como resultado un blanco.
+    Tenemos varias formas de dar color en CSS
+
+      Keywords -> Palabras clave que representan colores https://www.w3.org/wiki/CSS/Properties/color/Keywords
+      IMPORTANTE: Recordad que existe el color "transparent"
+
+      CurrentColor: Es una palabra clave que hace referencia a un valor de color. Este valor puede ser tomando
+      de la propiedad color definido en el mismo elemento o heredado de algún elemento padre.
+
+      RGB/RGBA
+        En el modo RGB tenemos tres canales (Red, Green, Blue) y tenemos 8 bits de color por canal, (cada bit
+        tiene dos posibles valores 0 o 1) lo que significa que tenemos 2^8 posibles valores, que van desde 0
+        hasta 255.
+
+        Esto nos da un total de 255 * 255 * 255 = 16.581.375 colores.
+
+        Su sintaxis es rgb(R,G,B)
+
+        Si ponemos todos los canales a 0 tendremos un negro puro y si lo ponemos a 255 tendremos un blanco.
+
+        Para movernos por la gama de grises debemos poner los 3 canales con el mismo valor, si ponemos los 3 canales
+        a 128 tendremos el gris puro.
+
+        El modo RGB nos da la opción de utilizar un cuarto canal que correspondería al canal alpha, es decir, la
+        transparencia, y su valor va desde 0 a 1. Tenemos dos sintaxis para utilizar el canal alpha.
+          rgba(R,G,B,A)
+          rgb(R G B / A)
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: mediumorchid;
+  color: #333;
+}
+
+.main {
+  /* color: aquamarine; */
+  /* background-color: currentColor; */
+}
+
+.box {
+  /* border-left: 100px solid red; */
+  /* border-top: 100px solid transparent; */
+  /* border-bottom: 100px solid transparent; */
+  /* border-right: 100px solid green; */
+  /* width: 0; */
+  /* border-left: 50vw solid transparent; */
+  /* border-right: 50vw solid transparent; */
+  /* border-top: 100px solid blue; */
+  /* width: 300px; */
+  /* height: 300px; */
+  /* background-color: lightcoral; */
+  /* color: lime; */
+  width: 200px;
+  height: 200px;
+  background-color: lightcoral;
+  /* background-color: rgb(255, 255, 0); */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  /* background-color: rgb(255 255 0 / 0.5); */
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+  border: 5px solid rgb(0 0 0 / 0.1);
+  /* border: 5px solid; */
+}

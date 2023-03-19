@@ -3,7 +3,7 @@
   delante y cual por detrás.
 
   * Para utilizar esta propiedad el elemento debe estar posicionado.
-  * Poner z-index auto, es lo mismo que no poner nada, puesto que es el valor por defecto.
+  * Poner z-index: auto; , es lo mismo que no poner nada, puesto que es el valor por defecto.
   * A la hora de dar valores al z-index, es recomendable pasar número grandes, para tener un amplio rango de números
   con los cuales jugar en caso necesitara que un nuevo elemento se encuentre por debajo o encima de uno existente.
 
