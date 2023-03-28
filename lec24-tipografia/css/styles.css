@@ -1,0 +1,203 @@
+/*
+  La tipografía es la ciencia que estudia el diseño y uso de los tipos de letra.
+
+  Las fuentes son tipos específicos de letra.
+
+  Los glifos son cada uno de los dibujos que representan cada símbolo de la fuente,
+  incluidos los espacios.
+
+  Los estilos de fuente son las modificaciones que se hacen a las fuentes, como el grosor 
+  o la inclinación.
+
+  Familia tipográfica, son las diferentes fuentes que pertenecen a una misma fuente base.
+
+  Cuando usamos una propiedad text-* estamos afectando a un bloque completo.
+
+  Cuando utilizamos una propiedad font-* afectamos a la fuente de texto.
+
+  Fuentes predeterminadas, son las fuentes que se consideran seguras ya que son genéricas y no
+  establecen una familia tipográfica, si no un estilo de fuente.
+    serif: Fuentes que tienen serifas (adornos en los caracteres)
+    sans-serif: Fuentes sin serifas
+    monospace: Fuentes que tienen el mismo espaciado entre todos sus caracteres.
+    cursive: Fuentes que pretenden emular escritura a mano, con ligaduras y trazos fluidos
+    fantasy: Fuentes que suelen ser decorativas.
+
+  Fuentes desde un servidor remoto, son fuentes que se encuentran en un servidor y que nosotros
+  descargamos para su uso, la más famosa es Google Fonts
+
+  Siempre que utilicemos fuentes no genéricas, debemos poner fuentes genéricas de fallback (respaldo)
+
+  Iconos: Si vas a usar una gran cantidad de iconos en tu web, compensa usar la libería remota.
+  Si solo usarás unos pocos, es mejor descargarlos en formato svg y utiliizarlos como imágenes.
+
+  Formatos para fuentes
+    True Type Font (TTF) -> Fue el primer formato estándar.
+
+    Open True Type Font (OTF) -> Facilita o implementa la creación de las curvas.
+
+    Web Open Font Format (WOFF) (WOFF2) -> Es un formato mucho más ligero y mejora el rendimiento.
+    Funciona a través de metadatos. WOFF tiene soporte total y WOFF2 no funciona en internet explorer.
+
+    Scalable Vector Graphics (SVG) -> Para efectos y animaciones sobre el texto, no es recomendable
+    usarlo en el texto genérico de la web, tiene muchos problemas.
+
+    Embedded Open Type (EOT) -> Primer formato digital propuesto para sitios WEB y es comprimido.
+    Se quedó como una propuesta pero no pasó a ser un estándar.
+  
+    Regla @font-face
+      Esta es la forma de utilizar fuentes que tenemos descargadas y no traemos de un servidor remoto,
+      cuando usamos google fonts, esto es lo que está pasando por detrás.
+
+      La sintaxis es:
+        @font-face {
+          font-family: Nombre de la familia, se lo asignamos nosotros.
+          src: aquí pondremos dos tipos de valores.
+            local() -> pondremos el nombre de la fuente para buscarla
+            en las fuentes del ordenador del usuario, de esa forma podremos evitar descargarla.
+            url() -> si no encontramos esa fuente procederemos a descargarla.
+            Existe otro valor, menos usado que es format
+            format() -> Este valor lo pasaremos de forma opcional si queremos
+            ser más específicos con la fuente que vamos a buscar o descargar. Si no
+            lo ponemos cogerá el primer formato soportado, si lo ponemos sólo usará
+            el que hemos establecido, y si no lo encuentra no hará nada.
+        }
+
+      Podemos añadirle más valores como font-style, font-weight y font-display (experimental), pero
+      son opcionales.
+  
+  Transformaciones de texto
+    Text-transform: Esta propiead nos permite hacer transformaciones ESTÉTICAS en nuestro texto.
+    Admite los valores:
+      none: No se aplicará ninguna transformación.
+      uppercase: El texto se pondrá mayúsculas
+      lowercase: El texto se pondrá en minúsculas
+      capitalize: Transforma la primera letra de cada palabra en mayúscula.
+
+  Adornos en el texto
+    Text-transform: Esta propiedad nos permite controlar
+    la línea que podemos poner en los textos.
+    Admite valores:
+      none: Elimina cualquier línea
+      underline: Coloca una línea bajo el texto
+      overline: Coloca una línea sobre el texto
+      line-through: Coloca una linea tachando el texto
+        
+    Text-shadow: Funciona exactamente igual que box-shadow, con la única diferencia de que no admite
+    el valor inset ni la expansión de la sombra.
+    Cabe resaltar que esta propiead manipula la sombra del texto, mas la sombra del contenedor
+    Los valores son:
+      offsetX: desplazamiento horizontal
+      offsetY: desplazamiento vertical
+      blur: desenfoque
+      color: por defecto coge el del texto
+  
+  Espaciado en fuentes y textos
+    Letter-spacing: Establece la separación entre caracteres. Se puede establecer en cualquier 
+    medida válida para CSS.
+
+    word-spacing: Establece la separación entre palabras. Se puede establecer en cualquier 
+    medida válida para CSS.
+
+    line-height: Establece el alto de cada línea, se puede dar una medida concreta o se puede
+    poner un número sin unidad de medidan. 
+    Tomar en cuenta que cuando se pasa un número sin medida, este se multiplicará por el valor
+    del font-size del texto al que se loi estamos aplicando. En otras palabras funcionorá como
+    si la unidad de medida (em).
+
+    Orientación del texto
+    writting-mode: Establece la dirección del texto
+*/ 
+
+/*
+  Se recomienda declarar el font-face al principio de todo.
+*/
+@font-face {
+  font-family: 'Mano alzada';
+  /* src: local('Algerian'); */
+  /* src: url('../assets/fonts/SCRIPTIN.ttf'); */
+  /*
+    Se recomienda declarar el local antes de la url, de forma que si no encuentra la fuente
+    en el ordenador, entonces lo buscar en algún repositorio de fuente.
+    En esta caso Algerian es una fuente instalada en el ordenador.
+  */
+  src: local('Algeria'), url('../assets/fonts/DeliciousHandrawn-Regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* font-family: sans-serif; */
+  /*
+    Se recomienda declarar una fuente generíca al final. De esta forma, si no funciona
+    la primera fuente, se usará la fuente genérica.
+  */
+  /* font-family: 'Edu NSW ACT Foundation', cursive; */
+  /* font-family: 'Mano alzada', cursive; */
+
+  /*
+    font-weight: determina el peso (o negrita) de la fuente.
+    Valores posible como: normal(peso 400), bold(peso 700), 100, 200 ...
+  */
+  /* font-weight: normal; */
+  /* font-weight: 700; */
+  /* font-weight: 1 200; */
+
+  /*
+    font-size: determina el tamaño de la fuente
+  */
+  /* font-size: 25px; */
+  background-color: #444;
+  color: aliceblue;
+}
+
+.icon {
+  text-align: center;
+  font-size: 5rem;
+  color: hsl(0 100% 50%);
+}
+
+.img-svg {
+  width: 30px;
+}
+
+.text {
+  font-family: 'Mano alzada', sans-serif;
+  font-size: 30px;
+  text-transform: capitalize;
+  /* text-shadow: -3px 3px 5px #F008; */
+  text-shadow: 2px 2px red, 3px 3px blue;
+}
+
+.link {
+  text-decoration: underline;
+  border-bottom: 3px solid rgb(255 255 0);
+  color: inherit;
+  background-color: blue;
+}
+
+.text2 {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  /* letter-spacing: -1px; */
+  /* word-spacing: -3px; */
+  /* line-height: 3; */
+  /* writing-mode: vertical-rl; */
+  width: 15px;
+  text-align: center;
+  word-break: break-all;
+  background-color: red;
+}
+
+.word-container {
+  height: 200px;
+  text-align: center;
+  background-color: lightcoral;
+}
+
+.word {
+  line-height: 200px;
+}
