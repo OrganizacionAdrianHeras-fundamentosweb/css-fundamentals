@@ -1,0 +1,284 @@
+/*
+  Pseudoclases
+  -Son selectores en tiempo real detectando la interacción del usuario con algunos elementos.
+  -Funcionan con todos los selectores de css.
+  -No están atados a ningún elemento.
+  -Su sintaxis es selector:pseudoclase{ estilos } 
+  -No es necesario indicar el selector
+
+
+  Dynamic
+    :link (links) - Link no visitado
+    :visited (links) - Link visitado
+    :active (links) - AL momento del click
+    :hover - Al poner el mouse sobre el elemento
+    :focus - Cuando el elemento tiene el foco
+  Target
+    :target - Elemento es objetivo de un marcador o ancla
+  Language
+    :lang() - Elemento que contiene el atributo lang
+    que especifiquemos
+  */
+
+  /*
+  UI States (Generalmente usado para formularios)
+    :enabled -> por defecto todos los campos (input) son enabled
+    :disabled -> cuando un campo (input) está deshabilitado
+    :checked -> cuando un campo (input) checkbox está clickeado
+    :in-range -> cuando el valor de un campo (input) de tipo number se encuentra en el rango
+    :out-of-range -> cuando el valor de un campo (input) de tipo number no se encuentra en el rango
+    :required -> para los campos (input) que son requeridos
+    :optional -> por defecto todos los campos (input) son opcionales
+    :valid -> comprueba que el contenido del campo (input) sea valido
+    :invalid -> comprueba que el contenido del campo (input) sea invalido
+    :read-only -> campos (input) de solo lectura
+    :read-wrtie -> campos (input) de lectura y escritura
+  */
+
+  /*
+  Structural
+    :root -> Representa la raiz del documento (html) usando una pseudoclase tenemos más especificidad
+    que si usáramos "html".
+    :empty -> Esta pseudoclase se aplica para los elementos vacios, es decir, etiquetas que no tienen
+    contenido
+
+    -child
+      :first-child -> Selecciona el primer hijo (independientemente del tipo de etiqueta)
+      :last-child -> Selecciona al último hijo (independientemente del tipo de etiqueta)
+      :nth-child(n) -> Selecciona al hijo n (independientemente del tipo de etiqueta)
+      :nth-last-child() -> Selecciona al hijo n empezando a contar desde el último (independientemen del tipo de etiqueta)
+      :only-child -> Selecciona al hijo único (independientemente del tipo de etiqueta)
+
+    -type
+      :first-of-type -> Selecciona el primer hijo (mismo tipo de etiqueta)
+      :last-of-type -> Selecciona al último hijo (mismo tipo de etiqueta)
+      :nth-of-type() -> Selecciona al hijo n (mismo tipo de etiqueta)
+      :nth-last-of-type() -> Selecciona al hijo n empezando a contar desde el último (mismo tipo de etiqueta)
+      :only-of-type -> Selecciona al hijo único (mismo tipo de etiqueta)
+    
+    Valores posibles:
+      odd - Impares
+      even - Pares
+      números enteros - 2, 3, 4
+      equaciones (1n,3n,4n+1,n+4,...)
+        Donde n es un número incrementable que va de 0 hasta que se quede sin elementos.
+
+  Negation
+    :not() -> Selecciona al elemento que no cumpla la condición, se puede poner cualquier selector salvo otro
+    :not
+  
+  all: propiedad css que permite restablecer todas las propiedades css a sus valores
+  iniciales o heredados, excepto 'unicode-bidi' y 'direction'
+    initial -> especifica que todos las propieades del elemento debería cambiarse a sus valores iniciales.
+    inherit -> especifica que todas las propiedades del elemento deberían cambiarse a sus valores heredados.
+    unset -> especifica que todos los elementos deberían cambiarse a sus valores heredados. Si estos heredan
+    por defecto. Caso contrario cambiar a su valor inicial.
+
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* .link:link {
+  color: aquamarine;
+} */
+
+/* .link:visited {
+  color: chartreuse;
+} */
+
+/* .link:active {
+  color: cyan;
+  background-color: hsl(0 100% 50%);
+} */
+
+/* .title:hover {
+  color: blueviolet;
+} */
+
+/* .button {
+  display: inline-block;
+  padding: .5em;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: hsl(0 100% 50%);
+  color: #FFF;
+} */
+
+/* .button:active {
+  transform: scale(.9);
+} */
+
+/* .button:hover {
+  border: .5px solid;
+  border-radius: 10px;
+  color: hsl(0 100% 50%);
+  background-color: #FFF;
+  cursor: pointer;
+} */
+
+/* .input:focus {
+  background-color: green;
+} */
+
+/* .menu {
+  position: fixed;
+  display: block;
+  padding: 1em;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  text-align: center;
+  background-color: lightblue;
+} */
+
+/* .text {
+  margin-top: 100vh;
+  margin-bottom: 100vh;
+} */
+
+/* .text:target {
+  padding-top: 75px;
+} */
+
+/* .span {
+  display: block;
+} */
+
+/* .span:lang(en) {
+  color: hsl(0 100% 50%);
+} */
+
+/* .span:lang(es) {
+  color: rgb(0 255 255)
+} */
+
+/* .input, 
+.label {
+  display: block;
+} */
+
+/* .input:enabled {
+  background-color: hsl(0 100% 50%);
+} */
+
+/* .input:disabled {
+  background-color: hsl(60 100% 50%);
+  border: none;
+} */
+
+/* .input:checked + label {
+  font-size: 3rem;
+} */
+
+/* .input:in-range {
+  background-color: hsl(120 100% 50%);
+} */
+
+/* .input:out-of-range {
+  background-color: hsl(240 100% 50%);
+} */
+
+/* .input:optional {
+  background-color: purple;
+} */
+
+/* .input:required {
+  background-color: lightcoral;
+} */
+
+/* .input:valid {
+  background-color: hsl(120 100% 50%);
+} */
+
+/* .input:invalid {
+  background-color: hsl(0 100% 50%); 
+} */
+
+/* .input:read-write {
+  background-color: hsl(60 100% 50%);
+} */
+
+/* .input:read-only {
+  background-color: hsl(300 100% 50%);
+} */
+
+/* .paragraph {
+  padding: .5em;
+  background-color: lightblue;
+} */
+
+/* .paragraph:empty {
+  all: unset;
+} */
+
+/* .paragraph:first-child {
+  background-color: hsl(0 100% 50%);
+} */
+
+/* .paragraph:last-child {
+  background-color: blue;
+} */
+
+/* .paragraph:nth-child(odd) {
+  background-color: lightcoral;
+} */
+
+/* .paragraph:nth-child(even) {
+  background-color: hsl(180 100% 50%);
+} */
+
+/* .paragraph:nth-child(2) {
+  background-color: yellow;
+} */
+
+/* .paragraph:nth-child(3n + 2) {
+  background-color: lightblue;
+} */
+
+/* .paragraph:nth-last-child(2) {
+  background-color: lightcoral;
+} */
+
+/* .paragraph:nth-last-child(odd) {
+  background-color: lightblue;
+} */
+
+/* .paragraph:nth-last-child(even) {
+  background-color: lightblue;
+} */
+
+/* .paragraph:nth-last-child(3n + 2) {
+  background-color: lightblue;
+} */
+
+/* span:only-child {
+  background-color: lightseagreen;
+} */
+
+/* .paragraph:first-of-type {
+  background-color: lightblue;
+} */
+
+/* .paragraph:nth-of-type(1) {
+  background-color: hsl(0 100% 50%);
+} */
+
+/* .paragraph:not(p) {
+  background-color: green;
+} */
+
+.paragraph:not(.first) {
+  background-color: green;
+}
+
+
+
+
+

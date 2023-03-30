@@ -74,6 +74,8 @@
         border-right-color
         border-bottom-color
         border-left-color
+    
+    Por defecto el valor del color de la propiedad "border" se hereda de la propiedad "color"
   
   Box-sizing: Es la propiedad que nos permite controlar el cálculo que hace el navegador
   a la hora de modificar las propieades content, padding y border.

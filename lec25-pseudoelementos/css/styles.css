@@ -1,0 +1,88 @@
+/*
+  Pseudoelementos
+  -Se utilizan para dar estilo a partes específicas de un elemento.
+  -La sintaxis es selector::pseudo-element{ estilos }
+  -No es necesario indicar el selector
+
+  Existen 5 pseudoelementos:
+    ::first-letter (Elementos de bloque) -> afecta a la primera letra de una cadena
+      de texto. Puede funciona en elementos de línea con display: inline-block;
+    ::first-line (Elementos de bloque) -> aplica estilos a lo que considera como primera línea
+      en función al espacio de width que lo contenga.
+      Puede funcionar en elemento de línea con display: inline-block;
+    ::selection (Retirado de la especificacion) -> Da estilo a un trozo que el usuario seleccione
+    ::before
+    ::after
+      La propiead content es obligatorio y son elementos de línea por defecto.
+      Son hijos del elemento al que pertenecen.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.title::first-letter {
+  font-size: 3rem;
+  color: red;
+  text-decoration: overline;
+  text-shadow: 3px 3px 3px hsl(0 100% 80%);
+}
+
+.text::first-line {
+  color: blue;
+}
+
+span {
+  display: inline-block;
+}
+
+span::first-line {
+  color: blue;
+}
+
+.text::selection {
+  color: green;
+  background-color: red;
+}
+
+/* .dolar::before {
+  content: '$';
+} */
+
+/* .dolar::after {
+  content: '0.00';
+} */
+
+.dolar {
+  font-weight: bolder;
+  color: rgb(100 150 100);
+}
+
+.dolar::before {
+  content: '+';
+  margin-right: 5px;
+}
+
+.dolar::after {
+  content: '-';
+  margin-left: 5px;
+}
+
+.dolar::after,
+.dolar::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: hsl(0 100% 10%);
+  color: inherit;
+}
+
+
+
+
