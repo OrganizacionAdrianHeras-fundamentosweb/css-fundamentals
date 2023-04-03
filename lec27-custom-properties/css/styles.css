@@ -1,0 +1,49 @@
+/*
+  Variables CSS (CUSTOM PROPERTIES)
+
+  -Una variable en memoria en el que guardamos un valor para reutilizarlo o modificarlo
+  -Las variables necesitan estar dentro de un selector
+  -Tienen herencia y cascada
+  -Existen variables globales y locales, dependerá del selector en el que lo declaremos
+  -Las variables CSS no son lo mismo que las variables CSS
+  -Su sintaxis es:
+  selector {
+    --nombre-variable: valor;
+  }
+  propiedad: var(--nombre-variable)
+
+*/
+
+:root {
+  --color: hsl(240 100% 50%);
+  --border: 2px solid hsl(120 100% 50%)
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.article {
+  --color: green;
+}
+
+.paragraph {
+  color: var(--color)
+}
+
+.check:checked + .box {
+  --color: purple;
+}
+
+.box {
+  width: 100px;  
+  height: 100px;
+  outline: var(--border);
+  background-color: var(--color);
+}
+
+

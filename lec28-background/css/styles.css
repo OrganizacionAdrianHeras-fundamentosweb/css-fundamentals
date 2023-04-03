@@ -1,0 +1,146 @@
+/*
+  BACKGROUND
+
+  -Es una propiedad que nos permite darle un fondo a las cajas
+  -La propiedad background es un shorthand, la lista de propiedades que incluye background son:
+    . background-color: Nos permite establecer el color de fondo de la caja
+    . background-image: url(ruta) Establece la imagen de fondo de la caja
+    . background-repeat: Establece si la imagen se repite o no
+        repeat | repeat-x | repeat-y | no-repeat
+        Donde: repeat es el valor por defecto
+    . background-size: Establece el tamaño de la imagen de fondo
+        x [y] | auto | cover | contain
+        el valor en y es opcional, si no se lo ponemos lo calcula automáticamente
+        cover: cubre la caja por completo, aunque la imagen escape del contenedor
+        contain: la imagen se ajusta al contenido
+    . background-position: Establece la posición de la imagen, si no se especifica un segundo valor
+                           será center.
+        left top
+        left center
+        left bottom
+        right top
+        right center
+        right bottom
+        center top
+        center center
+        center bottom
+        x% y%
+        xpos ypos
+        initial
+        inherit
+    . background-origin: Establece donde comienza el fondo 
+      Empieza a rellenar la imagen desde donde le indicamos
+      border-box | padding-box | content-box
+      Donde: border-box es el valor por defecto
+    . background-clip: Establece que parte de la caja rellenará el fondo 
+      Muestra la imagen desde donde le decimos, solo oculta, NO redimensiona
+      border-box | padding-box | content-box
+      Donde: border-box es el valor por defecto
+    . background-attachment: Permite establecer si el fondo se coloca respecto a la caja o al viewport.
+        scroll | fixed
+        el valor scroll establece que el fondo se coloque respecto a la caja
+        el valor fixed establece que el fondo se coloque respecto al viewport
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 100em;
+  text-align: center;
+}
+
+[class^="bg"] {
+  /* display: inline-block; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 150px;
+  border: 1px solid hsl(0 100% 50%);
+}
+
+.bg-color {
+  background-color: hsl(240 60% 40%);
+}
+
+.bg-image {
+  background-image: url('../assets/img/logo-firefox.webp');
+}
+
+.bg-size {
+  background-image: url('../assets/img/coffee.webp');
+  /* background-size: contain; */
+  /* background-size: 10%; */
+  /* background-size: 10% 10%; */
+  /* background-size: cover; */
+  /* background-size: contain; */
+  background-size: cover;
+}
+
+.bg-repeat {
+  background-image: url(../assets/img/logo-firefox.webp);
+  background-size: 40%;
+  /* background-repeat: repeat; */
+  /* background-repeat: repeat-x; */
+  /* background-repeat: repeat-y; */
+  background-repeat: no-repeat;
+}
+
+.bg-position {
+  background-image: url('../assets/img/logo-firefox.webp');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  /* background-position: top; */
+  /* background-position: center; */
+  /* background-position: bottom; */
+  /* background-position: left; */
+  /* background-position: right; */
+  /* background-position: left bottom; */
+  /* background-position: 50px 50px; */
+  background-position: 20% 20%;
+}
+
+.bg-origin {
+  padding: 10px;
+  border: 10px dotted hsl(0 100% 50%);
+  background-image: url('../assets/img/coffee.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-origin: border-box; */
+  /* background-origin: padding-box; */
+  background-origin: content-box;
+}
+
+.bg-clip {
+  padding: 10px;
+  border: 10px dotted hsl(0 100% 50%);
+  background-image: url('../assets/img/coffee.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-clip: border-box; */
+  /* background-clip: padding-box; */
+  background-clip: content-box;
+}
+
+.bg-attachment {
+  height: 600px;
+  background-color: blue;
+  background-image: url('../assets/img/coffee.webp');
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.bg-multiple {
+  width: 100vw;
+  background-image: url('../assets/img/logo-firefox.webp'),
+                    url('../assets/img/coffee.webp');
+  background-size: 10%, cover;
+  background-repeat: no-repeat;
+  background-position: right top, center center;
+  background-attachment: fixed, scroll;
+
+}
