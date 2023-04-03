@@ -2,6 +2,9 @@
   BACKGROUND
 
   -Es una propiedad que nos permite darle un fondo a las cajas
+    Recordar que si la <html> no presenta atributo background-color, entonces el fondo del elemento <body>
+    cubrirá toda la página. Si hay un fondo en el elemento <html>, el fondo del <body> se comporta como
+    cualquier otro.
   -La propiedad background es un shorthand, la lista de propiedades que incluye background son:
     . background-color: Nos permite establecer el color de fondo de la caja
     . background-image: url(ruta) Establece la imagen de fondo de la caja
@@ -142,5 +145,4 @@ body {
   background-repeat: no-repeat;
   background-position: right top, center center;
   background-attachment: fixed, scroll;
-
 }
