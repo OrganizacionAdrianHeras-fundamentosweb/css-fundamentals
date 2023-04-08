@@ -1,0 +1,115 @@
+/*
+  A los tipos de letra que existen se les denomina fuentes o tipografía
+
+  Familias tipográficas: Tienen nombre propio
+    Arial, Times New Roman, open sans, ubuntu
+  
+  Familias genéricas o seguras: su nombre se basa en características.
+    Se les dicen seguras, porque todos los navegadores contienen estas opaciones de tipografía.
+    serif: tienen un adorno en los remates
+    sans-serif: tiene un corte seco en los remates
+    cursive: emulan tipografía manuscrita
+    fantasy: letra decorativa
+    monospace: todos los caracteres tiene el mismo ancho
+
+  Si una fuente tipográfica tiene más de una palabra separada por espácios en sus nombre deberá ir entre comillas.
+  
+  FONT
+    font-family: establece la familia tipográfica
+      Se utiliza el nombre propio de la fuente o una familia
+      genérica, se recomienda utilizar SIEMPRE fuentes de reserva
+      ('Times New Roman',Times, serif)
+    font-size: establece el tamanño de la fuente
+      Se define en unidades:
+        px: pixeles (medida absoluta)
+        em: medida relativa al contexto (al padre)
+        rem: medida relativa al html
+        %: medida reltiva al tamaño actual
+        
+        vh: medida relativa al height del viewport
+        vw: medida relativa al widht del viewport
+        vmin: medida relativa al valor mínimo de viewport
+        vmax: medida relativa al valor máximo de viewport
+    font-weight: establece el grosor de la fuente
+      bold  | normal |  100-900
+    font-style: establece el estilo de la tipografía
+      normal | italic | obique
+  
+  TEXT
+    text-transformation: Transforma el texto a mayúsculas, minúsculas, etc.
+      lowercase (minúsculas) | uppercase (mayúsculas) | capitalize (primera letra de cada palabra en mayúsculas)
+
+    text-align: Alinea el texto del elemento a la izquierda, derecha, etc.
+    SOLO ELEMENTOS DE BLOQUE (excepto botones, que aunque sean de elementos en línea funcionan)
+      center | left | right | justitfy
+    
+    text-decoration: Establece la decoración del texto
+      overline | line-throught | underline | none
+
+    text-ident: mueve la primera linea de un texto. SOLO ELEMENTOS DE BLOQUE
+  
+  OTHER
+    line-height: establece la altura de la linea
+    letter-spacing: establece la separación de las letras con una medida en cualquier unidad
+*/
+
+@font-face {
+  font-family: 'myFont';
+  src: url('../assets/fonts/Bachelorette_PERSONAL_USE_ONLY.otf');
+}
+
+body {
+  /* font-size: 30px; */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.title {
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* font-size: 200%; */
+  /* font-size: 10vmin; */
+  /* font-style: oblique; */
+  /* font-style: italic; */
+  /* text-transform: capitalize; */
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-style: Italic;
+  font-size: 48px;
+}
+
+.span {
+  /* font-size: 200%; */
+}
+
+.paragraph {
+  /* font-weight: bold; */
+  /* text-align: justify; */
+  /* text-indent: 10px; */
+  /* letter-spacing: 10px; */
+  font-family: 'myFont', 'Montserrat', sans-serif;
+  font-size: 48px;
+}
+
+.link {
+  /* text-decoration: none; */
+}
+
+.box {
+  /* padding-top: 0.1px; */
+  /* --box-height: 150px; */
+  /* width: 150px; */
+  /* height: var(--box-height); */
+  /* background-color: hsl(0 100% 50%); */
+}
+
+.box__item {
+  /* text-align: center; */
+  /* line-height: var(--box-height); */
+}
