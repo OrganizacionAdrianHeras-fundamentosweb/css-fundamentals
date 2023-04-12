@@ -30,6 +30,7 @@
         xpos ypos
         initial
         inherit
+      Si solo expecificas uno de los dos valores. El segundo valor será por defecto 'auto'
     . background-origin: Establece donde comienza el fondo 
       Empieza a rellenar la imagen desde donde le indicamos
       border-box | padding-box | content-box

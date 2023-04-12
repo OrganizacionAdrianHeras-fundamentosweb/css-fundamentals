@@ -27,6 +27,7 @@
     Si a un elemento le aplicas el left y right auto, conseguirás que el elemento de bloque se centre.
     margin-left: auto -> pega el elemento de bloque a la derecha
     margin-right: auto -> pega el elemento de bloque a la izquierda
+    El valor auto no hace efecto en elememtos con display:inline-block;
 
   padding: Es la propiedad que nos permite generar espacio interno entre el borde y la caja.
     Es un shortband (propiead abreviada) que controla los 4 lados posibles a los que dar

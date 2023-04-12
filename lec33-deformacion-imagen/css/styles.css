@@ -1,0 +1,124 @@
+/*
+  object-fit: se usa para especificar cómo se debe cambiar el tamaño de <img> o <video> para que ajuste
+  a su contenedor
+    fill: valor por defecto
+    contain: el contenido se ajustará hasta rellenar de forma horizontal o vertical el contenedor sin
+    deformarse
+    cover: el contenido se ajustará hasta rellenar de forma horizontal y vertical el contenedor sin
+    deformarse
+    none: el contenido no se redimensiona y mantiene su tamaño original mostrando solo el trozo
+    de las dimensiones especificadas
+    scale-down: selecciona el menor de la comparación entre none y contain
+
+  object-position: coloca la imagen cuando esta no se muestra completa en el contenedor
+    left top
+      left center
+      left bottom
+      right top
+      right center
+      right bottom
+      center top
+      center center
+      center bottom
+      x% y%
+      xpos ypos
+      initial
+      inherit
+    Si solo expecificas uno de los dos valores. El segundo valor será por defecto 'auto'
+
+  filter:
+    none
+    blur(px): desenfoca la imagen
+    brightness(%): ajusta el brillo de la imagen siendo 1 el original. De 0 a 1 dan oscuridad y 
+      de 1 a n dan sobreexposición
+    contrast(%): Ajusta el contraste de la imagen siendo 1 el original. De 0 es negro y de 1 a n
+      dan más contraste.
+      Consiste en separar las áreas más brillantes y más oscuras. Aumentar el nivel de contraste dará
+      como resultado reflejos más brillantes y sombras más oscuras. Pero, al disminuir el contraste
+      se reducirán los reflejos y aumentarán las sombras
+    drop-shadow(h-shadow v-shadow blur spread color): aplica una sombra paralela a la imagen
+      la sombra no genera espacio adicional en la caja que lo contiene
+    grayscale(%): convierte la imagen a escala de grises, 0 es el original y 1 sería blanco y negro
+      completamente. Brinda los matices de gris.
+    hue-rotate(deg): añade matriz de color a la imagen. Se da un valor en grados según la rueda
+      cromática. El valor máximo es 360deg
+    invert(%): invierte el color de la imagen. Saca un negativo. 0 es el valor por defecto y 1
+      es totalmente invertida.
+      Invertir los colores significa voltear los bits que componen los píxeles en la pantalla, en donde
+      el blanco se vuelve negro y los colores claros se vuelven oscuros
+    opacity(%): controla la opacidad de la imagen. 1 es el valor por defecto y 0 es transparente
+    saturate(%): controla la saturción de color de la imagen. 1 es el valor por defecto, 0 es
+      totalmente desaturada y por encima de 1 se sobresatura
+      Consiste en ajustar la separación entre luces y sombras.Cabmiar los niveles de color dará
+      un efecto más notable.
+    sepia(%): aplica un tono sepia a la imagen. o es el valor por defecto y 1 es totalmente sepia.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.img {
+  width: 500px;
+  max-width: 100%;
+  height: 450px;
+  /* object-fit: fill; */
+  /* object-fit: contain; */
+  /* object-fit: cover; */
+  /* object-fit: none; */
+  /* object-fit: scale-down; */
+  object-fit: cover;
+  object-position: top;
+  background-color: hsl(0 100% 50%);
+}
+
+.img-2 {
+  max-width: 100%;
+  /* filter: blur(2px); */
+  /* filter: brightness(.5); */
+  /* filter: contrast(2); */
+  /* filter: drop-shadow(10px -10px 10px hsl(0 100% 50%)); */
+  /* filter: grayscale(1) */
+  /* filter: hue-rotate(60deg); */
+  /* filter: invert(1); */
+  /* filter: opacity(.2); */
+  /* filter: saturate(1); */
+  filter: sepia(1);
+}
+
+.img-2:hover {
+  filter: none;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 3px -3px 10px hsl(60 40% 50%);
+  word-spacing: -1px;
+  letter-spacing: -5px;
+}
+
+h1::first-letter {
+  text-transform: uppercase;
+  color: hsl(0 100% 50%);
+}
+
+.img-3 {
+  width: 100%;
+  height: 800px;
+  border-radius: 10px;
+  border: 10px solid #FFF;
+  object-fit: cover;
+  object-position: center;
+  filter: contrast(1.5) brightness(1.2) saturate(1.2) grayscale(.3) sepia(0.2) drop-shadow(5px -5px 5px) hue-rotate(10deg);
+}
+
+
