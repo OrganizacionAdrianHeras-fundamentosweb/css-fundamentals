@@ -1,0 +1,84 @@
+/*
+  clip-path: Es una máscara que oculta partes de una caja
+    circle(): dibuja un círculo, puede tener una medida fija, clip-path: circle(100px) o podemos
+      especificar un centro con at, clip-path: circle(100px at medidaX medidaY)
+      Donde medidaX y medidaY admiten estos valores:
+      left top
+      left center
+      left bottom
+      right top
+      right center
+      right bottom
+      center top
+      center center
+      center bottom
+      x% y%
+      xpos ypos
+      initial
+      inherit
+      Si solo especificas uno de los dos valores. El segundo será por defecto auto
+
+    ellipse(): dibuja una elipse, funciona igual que el círculo, pero en este caso tenemos que especificar
+      2 centros, el horizontal y el vertical.
+
+    inset(): dibuja un borde transparente por dentro de la caja inset 
+      (all | top/bottom left/right | top lef/right bottom | top right bottom left)
+      Además, existe la opción de redondear las equinas. Para ello después de los valores de inset ponemos round
+      inset(*** round 
+        all | top-left/bottom-right top-right/bottom-left | top-left top-right/bottom-left bottom-right |
+        top-left top-right bottom-right bottom-left
+      )
+    
+    polygon(): Especifica una serie de puntos (mínimo 3) para definir la zona visible siendo el punto 0 0
+    la esquina superior izquierda.
+    Los puntos se especifican por parejas de ejeX y ejeY
+      Ejem:
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+
+
+    Generador de clip-path: https://bennettfeely.com/clippy
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+}
+
+.box {
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+}
+
+.box__item {
+  width: 400px;
+  height: 400px;
+  background-color: hsl(0 100% 70%);
+  /* clip-path: circle(100px at 10%); */
+  /* clip-path: circle(100px at 0 0); */
+  /* clip-path: circle(100px at left top); */
+  /* clip-path: circle(100px at top); */
+  /* clip-path: ellipse(100px 50px at 0 0); */
+  /* clip-path: ellipse(100px 50px at 50% 50%); */
+  /* clip-path: ellipse(100px 50px at center top); */
+  /* clip-path: inset(20px); */
+  /* clip-path: inset(20px 50px); */
+  /* clip-path: inset(20px 50px 100px); */
+  /* clip-path: inset(20px 50px 100px 150px); */
+  /* clip-path: inset(10px round 10px 50px 100px 150px); */
+  /* clip-path: polygon(50% 0, 100% 100%, 0 100%); */
+  /* clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%); */
+  /* clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%); */
+  clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  transition: clip-path .5s;
+}
+
+.box:hover > .box__item {
+  clip-path: polygon(0% 0%, 0% 100%, 10% 100%, 10% 10%, 90% 10%, 90% 90%, 10% 90%, 10% 100%, 100% 100%, 100% 0%);
+}

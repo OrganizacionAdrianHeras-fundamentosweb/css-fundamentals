@@ -12,18 +12,19 @@
 
   object-position: coloca la imagen cuando esta no se muestra completa en el contenedor
     left top
-      left center
-      left bottom
-      right top
-      right center
-      right bottom
-      center top
-      center center
-      center bottom
-      x% y%
-      xpos ypos
-      initial
-      inherit
+    left center
+    left bottom
+    right top
+    right center
+    right bottom
+    center top
+    center center
+    center bottom
+    x% y%
+    xpos ypos
+    initial
+    inherit
+
     Si solo expecificas uno de los dos valores. El segundo valor será por defecto 'auto'
 
   filter:
