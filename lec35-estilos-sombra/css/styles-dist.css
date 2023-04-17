@@ -1,0 +1,81 @@
+/*
+  box-shadow: Es una propiedad que crea una sombra del tamaño de la caja que no genera espacio
+    adicional en la caja que lo contiene.
+  
+    h-offset v-offset blur spread color inset/outset
+    h-offset: Es el desplazamiento horizontal de la sombra
+    v-offset: Es el desplazamiento vertical de la sombra
+    blur: (Optional) Es la cantidad de desenfoque de la sombra
+    spread: (Optional) Es la extensión de la sombra
+    color: (Optional) Color de la sombra, si no se especifica tomará el color del texto
+    inset/outset: (Optional) Determina si la sombra se dibuja por dentro o por fuera
+    de la caja.
+
+    Con valor outset(default) los valores positivos añaden a derecha y abajo y los
+    valores negativos añaden a izquierda y derecha.
+    Con valor inset se invierten los valores, positivo sería izquierda y arriba y 
+    negativo sería derecha y abajo.
+
+    box-shadow: 10px 10px 2px 5px red;
+
+    Sombras múltiples: Se añaden las sombras separadas por comas
+    box-shadow: 10px 10px 2px 5px red, -10px -10px 2px 5px blue;
+
+  text-shadow: Es una propiedad que funciona exactamente igual que box-shadow, con la única
+  diferencia que no admite el valor inset ni la expansión de la sombra
+
+    h-offset v-offset blur color
+    Sombras múltiples: Se añaden las sombras sepraradas por comas
+    text-shadow: 10px 10px 2px red, -11px -11px 2px blue;
+  
+  filter: propiedad que permite darle efectos gráficos a la imagen, siendo uno de ellos:
+    drop-shadow: aplica una sombra paralela a la imagen. Además este no genera un espacio
+    adicional en la caja que lo contiene. Además, No admite insert
+
+    h-offset v-offset blur spread color
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+  text-transform: capitalize;
+  text-shadow: 3px 3px 3px hsl(60 100% 50%),
+               -3px -3px 3px hsl(30 100% 50%);
+}
+
+.box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 300px;
+  height: 300px;
+  background-color: #aaa;
+  border: 5px solid;
+  /* box-shadow: 10px 10px 10px 5px hsl(240 100% 50%); */
+  /* box-shadow: inset 10px 10px 10px 5px hsl(240 100% 50%); */
+  box-shadow: 0 0 0 10px hsl(240 100% 50%), 
+              0 0 0 20px hsl(60 100% 50%),
+              0 0 0 30px hsl(270 100% 50%)
+}
+
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  background-color: hsl(0 100% 50%);
+  border: 5px solid hsl(240 100% 80%);
+  filter: drop-shadow(5px 5px 0 hsl(210 100% 50%));
+}
+
+
+
+

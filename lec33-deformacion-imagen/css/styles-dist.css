@@ -26,7 +26,7 @@
       inherit
     Si solo expecificas uno de los dos valores. El segundo valor será por defecto 'auto'
 
-  filter:
+  filter: propiedad que permite darle efecto gráficos a la imagen
     none
     blur(px): desenfoca la imagen
     brightness(%): ajusta el brillo de la imagen siendo 1 el original. De 0 a 1 dan oscuridad y 
