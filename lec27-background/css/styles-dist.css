@@ -8,8 +8,13 @@
     . background-color: Nos permite establecer el color de fondo de la caja
     . background-image: url(ruta) Establece la imagen de fondo de la caja
     . background-repeat: Establece si la imagen se repite o no
-        repeat | repeat-x | repeat-y | no-repeat
-        Donde: repeat es el valor por defecto
+        repeat | repeat-x | repeat-y | no-repeat | space
+        Donde: 
+          repeat: es el valor por defecto
+          repeat-x: repite la imagen en el eje x
+          repeat-y: repite la imagen en el eje y
+          space: la imagen se repite tanto como sea posible sin recorte. La primera y la última imagen
+            se fijan a ambos lados del elemento y los espacios en blanco se distribuyen.
     . background-size: Establece el tamaño de la imagen de fondo
         x [y] | auto | cover | contain
         el valor en y es opcional, si no se lo ponemos lo calcula automáticamente
