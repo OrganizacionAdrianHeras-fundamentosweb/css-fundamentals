@@ -1,0 +1,268 @@
+/*
+  Flexbox
+    Propiedades para el flex-container:
+      display: flex
+        Convierte el contenedor en un contexto para flexbox y hace que el contenedor 
+        sea un elemento de bloque para los elementos que lo rodean.
+
+      display: inline-flex
+        Convierte el contenedor en un contexto para flexbox y hace que el contenedor
+        sea un elemento en línea para los elementos que lo rodean
+
+      flex-direction: row(default) | row-reverse | column | column-reverse
+        Modifica la dirección y cual es el eje principal.
+        
+        row: es el valor por defecto (horizontal, mostrará los elementos de izquierda a derecha)
+        row-reverse: (horizontal, mostrará los elementos de derecha a izquierda)
+        column: (vertical, mostrará los elementos de arriba abajo)
+        column-reverse: (vertical, mostrará los elementos de abajo arriba)
+
+      flex-wrap: no-wrap(default) | wrap | wrap-reverse
+        Controla si los elementos saltarán de línea o no
+
+        nowrap: es el valor por defecto, un contenedor flex va a hacer que todos
+          los elementos que queden en la misma línea del main axis
+        wrap: hace que los elementos que no quepan en la misma línea (manteniendo sus dimensiones,
+          si las tuvieran), salten al final(cross end) del cross axis.
+        wrap-reverse: los elementos que no quepan en la misma línea (manteniendo sus dimensiones,
+        si las tuvieran), salten al incio (cross start) del cross axis.
+      
+      flex-flow: esta propiedad fue creada para combinar el uso de flex-direction y  flex-wrap.
+        Ejem: flex-flow: column-reverse wrap;
+      
+      Alineamiento
+        Estas propiedades para alinear se aplican al flex-container.
+        Existen propiedades para el main-axis y para el cross-axis
+        Tomar en cuenta que a menos que los flex-item tenga un widht y height definido. Por defecto, flex-box
+        asignará un min-width: auto; durante la alineación. Salvo en el caso del valor strech.
+
+        main-axis:
+          justify-content: flex-start(default) | center | space-between | space-around | space-evenly |
+          flex-end
+          flex-start: alinea los elementos al principio del main axis
+          center: centra los elementos en la mitad del main axis
+          flex-end: alinea los elementos al final del main axis
+          space-between: distribuye los items a la misma distancia y no deja espacio exterior ni en el
+            primer ni el último flex-end a lo largo del main axis.
+          space-around: distribuye los items a la misma distancia y deja un espacio exterior en el primero
+            y en el último flex-item a lo largo del main axis.
+          space-evenly: distribuye los items y los espacios exteriores del primer y último flex-item dejando
+            la misma distancia entre todos a lo largo del main axis.
+        cross-axis:
+          align-items: Controla la alineación de los elementos en el cross axis.
+            flex-start | center | flex-end | stretch(default) | baseline
+            flex-start: alinea cada elemento al principio de la línea de su cross axis.
+            center: alinea cada element en la mitad de la línea de su cross axis.
+            flex-end: alinea cada elemento al final de la línea de su cross axis.
+            stretch: (valor por defecto), indica que cada elemento ocupe todo el tamaño posible 
+              en la linea que tiene asignado en su cross axis
+            baseline: se alinean las líneas base de cada elemento en su cross axis. Esto es usa
+            cuando queremos que dos elementos con diferentes espacios de línea en su cross axis, se
+            alinien.
+
+          align-content: Establece la distribución de espacio entre y alrededor de todos elementos a lo 
+            largo de la línea del cross axis
+            flex-start | center | flex-end | stretch(default) | baseline
+            flex-start: alinea a todos los elementos en conjunto al principio de la línea del cross axis
+            center: alinea a todos los elementos en conjunto a la mitad de la línea del cross axis
+            flex-end: alinea a todos los elementos en conjunto al final de la línea del cross axis
+            space-between: distribuye los items a la misma distancia y no deja espacio exterior ni en el
+              primer ni el último flex-end a lo largo del cross axis.
+            space-around: distribuye los items a la misma distancia y deja un espacio exterior en el primero
+              y en el último flex-item a lo largo del cross axis.
+            space-evenly: distribuye los items y los espacios exteriores del primer y último flex-item dejando
+              la misma distancia entre todos a lo largo del cross axis.
+            stretch: (valor por defecto), se suma los espacios de línea en el cross axis de cada elemento.
+              En donde cada elemento ocupará el espacio de línea distribuido proporcionalmente que le
+              corresponde a lo largo del cross axis.
+
+          TRUCO EXTRA:
+            El valor auto en la propiedad margin en los flex-item (hijos de un contenedor flex), lo que hace 
+            es absorver todo el trozo de espacio que dispose y por ende colocarse al lado contrario de donde le
+            has dicho.
+            Por ejem:
+              margin-left: auto; -> movería el flex-item a la derecha
+              margin-bottom: auto; -> movería el flex-item arriba
+              margin-left: auto; y margin-right: auto; -> movería el flex-item al medio de la línea horizontal
+              margin-top: auto; y margin-bottom: auto; -> movería el flex-item al medio de la línea vertical
+
+            Pero, para que funcione correctamente se debe aplicar este margin a todos los flex-item.
+    
+    Propiedades para el flex-item:
+      align-self: acepta los mismos valores que align-items, solo que este se aplica al flex-item. 
+        Es decir, permite alinear un elemento en concreto en su cross-axis
+    
+      flex: Es un shortband que engloba las siguientes propiedades:
+        Todas las medidas se establecen en función del espacio disponible en el contenedor.
+
+        flex-grow: Establece el espacio a agregar al elemento, en función a la cantidad de espacio de línea
+          sobrante del contenedor, en su main axis.
+          Es decir, cuantas divisiones del espacio sobrante va a coger cada elemento.
+          El espacio sobrante a agregar se distribuirá proprocionalmente con respecto al valor que se indique.
+          El valor es un entero desde 0 hasta n o auto.
+          El valor por defecto es 0
+      
+        flex-shrink: Establece el espacio a remover del elemento, en función a la cantidad de espacio de línea
+          faltante del contenedor, en su main axis.
+          Es decir, cuantas divisiones del espacio faltante se va a remover en cada elemento.
+          El espacio faltante a remover se distribuirá proporcionalmente con respecto al valor que se indique.
+          El valor es un entero desde 0 hasta n.
+          El valor por defecto es 1
+      
+        flex-basis: Establece cuanto tiene que ocupar el item antes de encojer (por el flex-shrink) o 
+          extenderse (por el flex-grow). 
+          Flex basis prevalece ante la propiedad width si el main-axis es horizontal o ante la propiedad height 
+          si el main-axis es vertical.
+          El valor es un entero desde 0 hasta n o auto.
+          El vlaor por defecto es auto. El cual tomar el valor del width.
+
+      Se recomienda usar el shortband flex por temas de rendimiento.
+      Los valores de flex son:
+        Tiene como valor por defecto a (0 1 auto)
+        auto: 1 1 auto;
+        none: 0 0 auto;
+    
+      Order: Establece qué orden ocupará el elemento en el contendor flex. 
+        El valor es el "peso" respecto a los valores que tengan los otros elementos.
+        Por defecto es 0.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+span {
+  /* width: 100px; */
+  background-color: hsl(60 100% 50%);
+}
+
+.flex-container {
+  /* display: inline-flex; */
+  display: flex;
+  /* padding: .5em; */
+  width: 400px;
+  height: 400px;
+  /* flex-direction: row; */
+  /* flex-direction: row-reverse; */
+  /* flex-direction: column; */
+  /* flex-direction: column-reverse; */
+  /* flex-wrap: nowrap; */
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap-reverse; */
+  /* flex-flow: column wrap; */
+  /* flex-flow: column wrap-reverse; */
+  /* justify-content: flex-start; */
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+  /* justify-content: space-around; */
+  /* justify-content: space-evenly; */
+  /* justify-content: flex-end; */
+  /* align-items: flex-start; */
+  /* align-items: center; */
+  /* align-items: stretch; */
+  /* align-content: flex-start; */
+  /* align-content: center; */
+  /* align-content: flex-end; */
+  /* align-content: stretch; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  background-color: #FCA16D;
+}
+
+.flex-item {
+  /* margin: .5em; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-top: auto; */
+  /* margin: auto; */
+  /* flex-shrink: 0; */
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #FFF;
+}
+
+.flex-item:first-child {
+  /* order: -1; */
+  background-color: hsl(0 100% 50%);
+}
+
+.flex-item:nth-child(2) {
+  /* flex-shrink: 3; */
+  /* flex-basis: 250px; */
+  /* flex-basis: auto; */
+  /* flex-shrink: 0; */
+  /* flex: auto; */
+  /* flex: none; */
+  /* flex: 0 1 auto; */
+  /* order: 2; */
+  background-color: hsl(180 100% 50%);
+}
+
+.flex-item:nth-child(3) {
+  /* order: 1; */
+  background-color: hsl(200 100% 50%);
+}
+
+.flex-item:last-child {
+  /* order: 3; */
+  background-color: lightseagreen;
+}
+
+.box {
+  display: flex;
+  padding: .5em;
+  /* height: 400px; */
+  align-items: center;
+  border: 1px solid;
+}
+
+.box > img {
+  max-width: 50%;
+}
+
+.prices {
+  display: flex;
+  height: 600px;
+  /* align-content: space-between; */
+  /* align-content: space-around; */
+  /* align-content: space-evenly; */
+  align-content: space-around;
+  align-items: baseline;
+  background-color: lightblue;
+}
+
+.prices__item {
+  width: 25%;
+}
+
+.prices__item:first-child {
+  background-color: hsl(0 100% 50%);
+  line-height: 30px;
+}
+
+.prices__item:nth-child(2) {
+  /* align-self: flex-start; */
+  /* align-self: center; */
+  /* align-self: flex-end; */
+  /* align-self: stretch; */
+  align-self: baseline;
+  line-height: 40px;
+  background-color: hsl(60 100% 50%);
+}
+
+.prices__item:nth-child(3) {
+  line-height: 50px;
+  background-color: hsl(180 100% 50%);
+}
+
+.prices__item:last-child {
+  line-height: 30px;
+  background-color: hsl(340 100% 50%);
+}
+

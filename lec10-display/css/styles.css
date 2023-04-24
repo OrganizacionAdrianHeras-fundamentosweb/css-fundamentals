@@ -11,8 +11,13 @@
       no permite el uso de margin-(left/rigth): auto; 
       y márgenes verticales.
   
-      La imagen, el audio y el video por defecto tiene el display como inline-block. 
-      El cambiar el display a inline no hará efecto sobre este, en cambio el block sí.
+    OJO:
+    - La imagen, el audio y el video por defecto tiene el display como inline-block. Además, el cambiar 
+    el display a inline no hará efecto sobre este, en cambio el block sí.
+    - Cuando un elemento se comporta como línea, por ejemplo, por inline o inline-block. Entonces, este adquiere
+    valores en la propiedad line-height y font-size, los cuales pueden generar espacio adicional.
+    Generalmente cuando se trata de inline-block, se suele colocar el line-height y el font-size a 0 para que
+    el contenedor no tenga espacios adicionales a los especificados.
 */
 * {
   box-sizing: border-box;

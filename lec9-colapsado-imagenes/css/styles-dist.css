@@ -8,6 +8,7 @@
   Generalmente el artificio es poner un padding vertical con un valor mínimo (Ejem: padding-top:0.1px;) con el fin
   de que el elemento hijo detecte que el elemento padre tiene un padding y por ende el margen del elemento hijo trabajará
   dentro del contedor padre y no como si fuera el margen del contenedor padre.
+  Recalcar que esto no sucede cuando el elemento presenta com display el valor flex.
 */
 
 * {

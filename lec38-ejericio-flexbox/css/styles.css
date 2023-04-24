@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  background-image: radial-gradient(circle, #b94bf8, #3a1957);
+  color: #eee;
+}
+
+.card {
+  display: flex;
+  margin: 2em auto;
+  width: 75%;
+  height: 450px;
+  background-color: #333;
+}
+
+.card__left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: .1rem 0;
+  width: 20%;
+  background-color: #222;
+}
+
+.card__left > img {
+  max-width: 80%;
+  clip-path: circle(40%);
+}
+
+.card__right {
+  padding: 0 .5rem;
+  width: 80%;
+}
+
+.card__title {
+  margin: 1rem 0;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-align: center;
+  font-style: italic;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
+
+.form__names {
+  display: flex;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__names > .form__field {
+  flex-grow: 1;
+}
+
+.form__names > .form__field:first-child {
+  margin-right: 3rem;
+}
+
+.form__label {
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+.form__input,
+.form__textarea {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  color: inherit;
+}
+
+.form__textarea {
+  flex-basis: 150px;
+  resize: none;
+  border: 1px solid;
+}
+
+.form__submit {
+  flex-basis: 40px;
+  width: 40%;
+  background-image: radial-gradient(circle, blue, purple);
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+}
+
+
+
+
+

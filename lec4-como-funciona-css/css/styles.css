@@ -14,8 +14,11 @@
  Cascada -> Funciona siempre que la especificidad sobre el elemento sea la misma
  Herencia -> Es la capacidad que tienen algunos elementos de heredar algunas propiedades (como estilos)
  de sus elementos contenedores (padres, abuelos, etc.)
-  inherit -> permite que las propiedades de estilos que por defecto no se heredan, se puedan heredar del elemento padre
-  initial -> mantiene el valor original de la propiead de estilo de un elemento, evitando de esta forma que su valor cambie al heredar del elemento padre
+  inherit -> permite que las propiedades de estilos que por defecto no se heredan, se puedan heredar del elemento padre inmediato.
+  initial -> mantiene el valor original de la propiead de estilo de un elemento, evitando de esta forma que su valor cambie al heredar
+    del elemento padre inmediato.
+  Tomar en cuenta que estos no pueden ser usado en un shorthand, debido a que se aplica en la totalidad del valor de la propiedad mas no
+  parcialmente.
 */
 
 /*
