@@ -76,22 +76,21 @@
             stretch: (valor por defecto), se suma los espacios de línea en el cross axis de cada elemento.
               En donde cada elemento ocupará el espacio de línea distribuido proporcionalmente que le
               corresponde a lo largo del cross axis.
-
-          TRUCO EXTRA:
-            El valor auto en la propiedad margin en los flex-item (hijos de un contenedor flex), lo que hace 
-            es absorver todo el trozo de espacio que dispose y por ende colocarse al lado contrario de donde le
-            has dicho.
-            Por ejem:
-              margin-left: auto; -> movería el flex-item a la derecha
-              margin-bottom: auto; -> movería el flex-item arriba
-              margin-left: auto; y margin-right: auto; -> movería el flex-item al medio de la línea horizontal
-              margin-top: auto; y margin-bottom: auto; -> movería el flex-item al medio de la línea vertical
-
-            Pero, para que funcione correctamente se debe aplicar este margin a todos los flex-item.
     
     Propiedades para el flex-item:
-      align-self: acepta los mismos valores que align-items, solo que este se aplica al flex-item. 
-        Es decir, permite alinear un elemento en concreto en su cross-axis
+      Alineamiento
+        align-self: acepta los mismos valores que align-items, solo que este se aplica al flex-item. 
+          Es decir, permite alinear un elemento en concreto en su cross-axis
+
+        margin:
+          El valor auto en la propiedad margin en los flex-item (hijos de un contenedor flex), lo que hace 
+          es absorver todo el trozo de espacio que dispose y por ende colocarse al lado contrario de donde le
+          has dicho.
+          Por ejem:
+            margin-left: auto; -> movería el flex-item a la derecha
+            margin-bottom: auto; -> movería el flex-item arriba
+            margin-left: auto; y margin-right: auto; -> movería el flex-item al medio de la línea horizontal
+            margin-top: auto; y margin-bottom: auto; -> movería el flex-item al medio de la línea vertical     
     
       flex: Es un shortband que engloba las siguientes propiedades:
         Todas las medidas se establecen en función del espacio disponible en el contenedor.

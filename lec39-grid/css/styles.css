@@ -148,6 +148,16 @@
         center
         stretch
 
+      margin:
+        El valor auto en la propiedad margin en los flex-item (hijos de un contenedor flex), lo que hace 
+        es absorver todo el trozo de espacio que dispose y por ende colocarse al lado contrario de donde le
+        has dicho.
+        Por ejem:
+          margin-left: auto; -> movería el flex-item a la derecha
+          margin-bottom: auto; -> movería el flex-item arriba
+          margin-left: auto; y margin-right: auto; -> movería el flex-item al medio de la línea horizontal
+          margin-top: auto; y margin-bottom: auto; -> movería el flex-item al medio de la línea vertical     
+
 */
 
 * {
