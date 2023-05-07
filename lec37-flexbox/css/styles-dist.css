@@ -61,7 +61,8 @@
             alinien.
 
           align-content: Establece la distribución de espacio entre y alrededor de todos elementos a lo 
-            largo de la línea del cross axis
+            largo de la línea del cross axis.
+            Esta propiedad solo hace efecto cuando hay elementos que distintas líneas.
             flex-start | center | flex-end | stretch(default) | baseline
             flex-start: alinea a todos los elementos en conjunto al principio de la línea del cross axis
             center: alinea a todos los elementos en conjunto a la mitad de la línea del cross axis

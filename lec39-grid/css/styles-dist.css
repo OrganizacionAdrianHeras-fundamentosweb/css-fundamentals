@@ -1,0 +1,483 @@
+/*
+  GRID
+  
+  Propiedades para el contenedor
+
+    grid-template: Es un shorthand que engloba grid-template-columns, grid-template-rows y grid-template-areas.
+    grid-template-columns: permite asignar medidas a las columnas.
+    grid-template-row: permite asignar medidas a las filas.
+    grid-template-area: permite asignar espacio de columnas y filas a los elementos, mediante nombres.
+
+    Espacio entre elementos
+      column-gap: Especifica el tamaño de brencha que hay entre cada columna.
+      row-gap: Especifica el tamaño de brecha que hay entre cada fila.
+
+    Medidas de la cuadrícula
+      Se pueden dar medidas con cualquiera de las unidades que ya conocemos y dos más que 
+      vienen con grid, fr y auto.
+        fr: Equivale a n fracciones del espacio disponible depués de establecer las medidas fijas.
+        auto: El tamaño mínimo asignado al item será el espacio de su contenido + su padding, si lo tuviera.
+
+      función repeat()
+        Con la función repeat podemos establecer repeticiones de medidas o patrones.
+        En el caso "simple" recibirá 2 parámetros (valores):
+          repeat(nColumnas o nFilas, medida)
+          grid-template-columns: repeat(4, 100px) es lo mismo que
+          grid-template-columns: 100px 100px 100px 100px;
+        Si como segundo valor añadimos más de una medida, construiremos un patrón, no
+        hay límite de valores.
+          grid-template-columns: repeat(2, 100px 50px...) es los mismo que
+          grid-template-columns: 100px 50px 50px 100px
+  
+    Explicit grid:
+      Es el grid que declaramos, tanto con grid-temaplte-coumns como con grid-template-rows.
+
+    Implicit grid:
+      Es el grid que no declaramos, los items que quedan fuera del explicit grid.
+      Estos items por defecto ocupan un espacio auto (el contenido que tienen mas su padding).
+  
+    grid-auto-columns:
+      Toma todas las columnas que no tienen dimensiones definidas para establecer 
+      qué hacer con ellas.
+      Esta propiedad se utiliza siempre y cuando la propiedad grid-auto-flow: column;
+
+    grid-auto-rows:
+      Toma todas las filas que no tienen dimensiones definidas para establecer
+      qué hacer con ellas.
+
+    grid-auto-flow:
+      Establece la dirección en la cual se va a pintar el implicit grid.
+      Admite 3 valores:
+        row(default): Se crearán filas adicionales
+        column: Se crearán columnas adicionales.
+        dense: Establece qué hacer con los huecos que queden.
+      Ejem: 
+        . grid-auto-flow: column;
+        . grid-auto-flow: column dense;
+    
+    minmax():
+      Recibe dos parámetros (valores) para establecer el mínimo y el máximo que pueden tener
+      los items.
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+
+      min-content: mínimo necesario en función del contenido
+      max-content: máximo necesario en función del contenido
+
+      auto-fill: Crea tantos grid-items vacios como quepan en el viewport
+        respetando las medidas.
+      auto-fit: Elimina los grid-items vacios que no se estén ocupando.
+    
+    Alineamiento:
+      justify-items: Alinea los elementos horizontalmente respecto a la celda
+        Admite los valores:
+          stretch (default)
+          start o flex-start
+          center
+          end o flex-end
+      align-items: Alinea los elementos verticalmente respecto a al celda
+        Admite los valores:
+          stretch (default)
+          start o flex-start
+          center
+          end o flex-end
+      
+      place-items: Engloba las propiedades align-items y justify-items
+        place-items: align-items justify-items;
+          Ejem: place-items: flex-start flex-end;
+        Si el valor es el mismo para ambos, basta con solo ponerlo una vez.
+          Ejem: place-items: center;
+      
+      justify-content: Alinea los elementos horizontalmente respecto al contenedor
+        Admite los valores:
+          stretch
+          start o flex-start (default)
+          center
+          end o flex-end
+          space-around
+          space-between
+          space-evenly
+
+      align-content: Alinea los elementos verticalmente respecto al contenedor
+        Admite los valores
+          stretch (default)
+          start o flex-end
+          center
+          end o flex-end
+          space-around
+          space-between
+          space-evenly
+
+      place-content: align-content justify-content
+        place-content: align-content justify-content;
+          Ejem: place-content: flex-start flex-end;
+        Si el valor es el mismo para ambos, basta con solo ponerlo una vez.
+          Ejem: place-content: flex-end;
+
+      order: Funciona igual que en flexbox, por defecto todos los items tienen order: 0
+
+  Propiedades para los items
+    grid-area: Permite especificar cual literal del grid-template-area hace referencia al elemento grid.
+
+    Ordenar elementos con grid-column y grid-row
+      grid-column-start: establece desde que colum-line empezará el elemento.
+      grid-column-end: establece hasta que column-line llega el elemento.
+      grid-row-start: establece desde que row-line empezará el elemento.
+      grid-row-end: establece hasta que row-line llega el elemento.
+
+    Existe un shortband que engloba las 2 propiedades.
+      grid column: valstart
+      grid-column: valstart / valend
+      grid-row: valstart
+      grid-row: valstart / valend
+
+      tanto start como end admiten valores positivos, negativos y la palabra span
+      valor positivo: empieza a contar las column-lines o las row-lines de izquierda a derecha
+      valor negativo: empieza a contar las column-lines o las row-lines de derecha a izquierda
+      span: establecemos cuantas columnas ha de ocupar, span 3 es como decirle que ocupe 3 columnas.
+
+      tip: si ponemos en el valor end -1 llegará hasta el final.
+
+    Alineamiento
+      justify-self: funciona igual que justify-items
+      align-self: funciona igual que align-items
+      place-self: funciona igual que place-items
+
+      Admite los valores:
+        start o flex-start
+        end o flex-end
+        center
+        stretch
+
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background-image: radial-gradient(circle,hsl(300 100% 30%), purple);
+  background-repeat: no-repeat;
+  color: #EEE;
+}
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: 100px 50px 150px 35px; */
+  /* grid-template-rows: 100px 100px 100px 100px; */
+  /* row-gap: 30px; */
+  /* column-gap: 30px; */
+  /* grid-template-columns: 40px 30% 40vw; */
+  /* grid-template-columns: 50px 5fr 2fr; */
+  /* grid-template-columns: 100px 100px auto 100px; */
+  /* grid-template-columns: repeat(3, 100px); */
+  /* grid-template-columns: repeat(3, 200px); */
+  /* grid-template-columns: 100px repeat(2, 250px); */
+  /* grid-template-columns: 100px repeat(2, 1fr); */
+  /* grid-template-rows: 150px repeat(2, 100px) 150px; */
+  /* grid-template-columns: repeat(3, 50px 150px); */
+  /* grid-template-columns: repeat(3, 40px 60px 100px); */
+  /* grid-template-rows: repeat(3, 45px 55px 100px); */
+  /* grid-template-columns: repeat(5, 1fr); */
+  /* grid-template-rows: repeat(2, 200px); */
+  /* grid-auto-flow: row dense; */
+  /* grid-auto-flow: column dense; */
+  /* grid-auto-flow: column; */
+  /* grid-auto-rows: 100px; /
+  /* grid-auto-columns: 100px; */
+  /* grid-auto-flow: column; */
+  /* grid-template-columns: minmax(200px, auto) 200px 200px; */
+  /* grid-template-columns: repeat(3, minmax(200px, 1fr)); */
+  /* grid-template-columns: minmax(min-content, 300px) 200px 200px; */
+  /* grid-template-columns: repeat(3, minmax(min-content, 1fr)); */
+  /* grid-template-columns: repeat(3, minmax(max-content, 1fr)); */
+  /* grid-template-columns: repeat(auto-fill, 200px); */
+  /*
+    Cuando se usa auto-fill y auto-fit, se recomienda usar una medida exacta como valor mínimo,
+    y 1fr como calor máximo para permitir que los elementos crezcan proporcionalmente.
+  */
+  /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* justify-items: flex-start; */
+  /* justify-items: center; */
+  /* justify-items: flex-end; */
+  /* justify-items: stretch; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: stretch;
+  /* justify-items: flex-end; */
+  /* align-items: flex-start; */
+  /* justify-items: center; */
+  /* align-items: flex-start; */
+  /* align-items: center; */
+  /* align-items: flex-end; */
+  /* align-items: stretch; */
+  /* place-items: flex-start flex-start; */
+  /* place-items: flex-start; */
+  /* justify-content: space-evenly; */
+  /* align-content: space-evenly; */
+  /* place-content: center; */
+  /* place-content: center flex-end; */
+  /* justify-items: center; */
+  /* align-items: center; */
+  -moz-column-gap: 2px;
+       column-gap: 2px;
+  row-gap: 2px;
+  /* width: 600px; */
+  height: 600px;
+  background-image: linear-gradient(red, hsl(60 100% 30%));
+  background-repeat: no-repeat;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid;
+}
+  
+.grid-item:first-child {
+  /* align-self: flex-start; */
+  /* justify-self: flex-start; */
+  /* place-self: flex-start flex-end; */
+  background-color: royalblue;
+  order: 1;
+}
+
+.grid-item:nth-child(2) {
+  /* grid-column-start: 1; */
+  /* grid-column-end: 3; */
+  /* grid-row-start: 2; */
+  /* grid-row-end: 4; */
+  /* grid-column: span 3; */
+  /* grid-row: 2 / 4; */
+  /* grid-column: span 3; */
+  /* grid-row: 2 / 4; */
+  /* background-color: purple; */
+}
+
+.grid-item:nth-child(3) {
+  /* grid-column: 3 / 6; */
+  /* background-color: orange; */
+}
+
+.grid-item:nth-child(4) {
+  /* grid-column-start: 1; */
+  /* grid-column-end: 2; */
+  /* grid-row-start: 1; */
+  /* grid-row-end: 2; */
+}
+
+.grid-item:nth-child(5) {
+  /* grid-column-start: 4; */
+  /* grid-row-start: 2; */
+  /* grid-row-end: span 2; */
+  /* grid-column: span 5; */
+  /* grid-row: 3; */
+  /* background-color: peru; */
+}
+
+.grid-item:nth-child(13) {
+  /* grid-row: span 3; */
+}
+
+.grid-item:last-child {
+  /* grid-column: span 3; */
+  /* grid-row: 6; */
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 150px repeat(2, 1fr);
+  grid-template-areas: "header header aside"
+                       "article article aside"
+                       "footer footer .";
+}
+
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-align: center;
+  background-color: peru;
+}
+
+.aside {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: aside;
+  background-color: pink;
+}
+
+.article {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: article;
+  text-align: center;
+  font-size: .9rem;
+  background-color: blue;
+}
+
+.footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: footer;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-align: center;
+  background-color: peru;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: 
+    [first-column-line]
+    100px
+    [second-column-line]
+    100px
+    [third-column-line]
+    100px
+    [fourth-column-line]
+    100px
+    [last-column-line];
+  grid-template-rows: 
+    [first-row-line]
+    100px
+    [second-row-line]
+    100px
+    [third-row-line]
+    100px
+    [fourth-row-line]
+    100px
+    [last-row-line];
+  padding: 1rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  row-gap: 1rem;
+  background-color: #FFF;
+}
+
+.grid-item-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.grid-item-2:first-child,
+.grid-item-2:nth-child(2) {
+  background-color: violet;
+}
+
+.grid-item-2:nth-child(3),
+.grid-item-2:nth-child(4) {
+  background-color: orange;
+}
+
+.grid-item-2:first-child {
+  grid-column: second-column-line;
+}
+
+.grid-item-2:nth-child(2) {
+  grid-column: first-column-line / span 2;
+  grid-row: second-row-line / span 2;
+}
+
+.grid-item-2:nth-child(3) {
+  grid-row: span 2;
+}
+
+.grid-item-2:nth-child(4) {
+  grid-column: first-column-line;
+  grid-row: first-row-line;
+}
+
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  row-gap: 1rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  padding: 1rem;
+  background-color: #FFF;
+}
+
+.grid-item-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  color: #000;
+  border: 1px solid;
+}
+
+.nested {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+
+.box-2 {
+}
+
+.grid-container-4 {
+  display: grid;
+  /* grid-template: 100px 200px / 300px 350px; */
+  /* grid-template: "first first first" 100px
+                  "center center center" 200px
+                  "last . ." 150px /
+                  300px 250px 100px; */
+  /* grid-template-areas: "first first first" 
+                       "center center center"
+                       "last . ."; */
+  grid-template: 100px 200px 150px / 300px 250px 150px;
+  justify-content: center;
+  background-color: yellow;
+}
+
+.grid-item-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid;
+  font-size: 2rem;
+  color: #000;
+}
+
+.grid-item-4:first-child,
+.grid-item-4:nth-child(2),
+.grid-item-4:nth-child(3) {
+  background-color: lightgreen;
+}
+
