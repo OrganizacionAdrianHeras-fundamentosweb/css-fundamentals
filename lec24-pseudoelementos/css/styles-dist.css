@@ -15,6 +15,7 @@
     ::after
       La propiead content es obligatorio y son elementos de línea por defecto.
       Son hijos del elemento al que pertenecen.
+      En donde before es el primer hijo y after el último hijo
 */
 
 * {
