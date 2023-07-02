@@ -145,8 +145,7 @@ body {
 }
 
 .star:nth-child(even) {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
   background-image: url('../assets/imgs/star.png');
   background-size: 23px 18px;
   background-repeat: space;
