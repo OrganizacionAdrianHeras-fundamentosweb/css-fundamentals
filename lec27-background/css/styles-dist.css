@@ -48,7 +48,9 @@
         scroll | fixed
         el valor scroll establece que el fondo se coloque respecto a la caja
         el valor fixed establece que el fondo se coloque respecto al viewport
-*/
+    .background-blend-mode: Establece como las imágenes de fondo de un elemento deben combinarse entre sí
+        y con el color de fondo del elememto.
+    */
 
 * {
   box-sizing: border-box;
@@ -56,6 +58,7 @@
 
 body {
   margin: 0;
+  padding-top: 0.1px;
   padding-bottom: 100em;
   text-align: center;
   border: 1px solid hsl(0 100% 50%);
@@ -156,4 +159,15 @@ body {
   background-repeat: no-repeat;
   background-position: right top, center center;
   background-attachment: fixed, scroll;
+}
+
+.bg-blend {
+  width: 50%;
+  height: 20rem;
+  background-image: url(../assets/img/dolphin.webp),
+                    url(../assets/img/wave.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20% 25%, cover;
+  background-blend-mode: multiply;
 }
