@@ -53,6 +53,9 @@
       Consiste en ajustar la separación entre luces y sombras.Cabmiar los niveles de color dará
       un efecto más notable.
     sepia(%): aplica un tono sepia a la imagen. o es el valor por defecto y 1 es totalmente sepia.
+
+  backdrop-filter -> esta propiedad css permite aplicar los mismos efectos de la propiedad
+      filter, pero detrás de un elemento.
 */
 
 * {
@@ -61,6 +64,9 @@
 
 body {
   margin: 0;
+  padding-top: 0;
+  min-height: 100vh;
+  background-image: linear-gradient(to top left, #5555, #ddd5);
 }
 
 .img {
@@ -122,4 +128,27 @@ h1::first-letter {
   filter: contrast(1.5) brightness(1.2) saturate(1.2) grayscale(.3) sepia(0.2) drop-shadow(5px -5px 5px) hue-rotate(10deg);
 }
 
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 20rem;
+  background-image: url(../assets/img/coffee.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 5px solid white;
+  border-radius: 5px;
+}
 
+.box > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 5rem;
+  backdrop-filter: blur(20px) brightness(1.5);
+}
