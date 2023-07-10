@@ -1,0 +1,73 @@
+/*
+float -> propiedad css que coloca un elemento en el lazdo izquierdo o derecho de su contenedor,
+ lo que permite que el texto y los elementos en línea lo envuelvan.
+
+  características:
+    * Esta propiedad aplica para elementos de bloque, pero al aplicarlo a un elemento de línea, hará que se
+      comporte como un elemento de bloque.
+    * Los elementos en linea y el texto quedan siempre alrededor de los elementos que esten flotando
+    * No hay colapso de márgenes
+    * para separa un elemento flotante de un elemento que no lo es, hay que aplicar márgenes al elemento que
+      está flotando
+
+  Valores posibles:
+    left -> intenta colocar el elemento a la izquierda, todo lo que se pueda y lo más arriba posible.
+    right -> intenta colocar el elemento a la derecha, todo lo que se pueda y lo más arriba posible.
+
+clear -> propiead css que establece si un elemento deve moverse debajo (borrado) de los elementos
+  flotantes que lo preceden. Esta propiedad se aplica a elementos flotantes y no flotantes.
+
+  Valores posibles:
+    left -> indica que el elemento se mueva hacia abajo para borrar los
+      flotantes izquierdo anteriores
+    right -> indica que el elemento se mueva hacia abajo para borrar los flotantes
+      de la derecha.
+    both -> indica que el elemento se mueva hacia abajo para borrar los flotantes
+    izquierdo y derecho
+Obs:
+ Se recomienda usar float cuando quieres envolver texto alrededor de imágenes.
+*/
+
+*,*::after,*::before {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 0.1px;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #5555, #ddd);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.square,.square-right {
+  margin: 10px;
+  width: 10rem;
+  height: 10rem;
+  background-color: hsl(220 100% 70%);
+  border: 1px solid;
+}
+
+.square {
+  float: left;
+}
+
+.square-right {
+  float: right;
+}
+
+.item:last-child {
+  clear: left;
+  /* clear: right; */
+  /* clear: both; */
+}
+
+
+
+
+
+
