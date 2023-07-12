@@ -1,0 +1,146 @@
+/* 
+Animation CSS
+  animation-name -> Permite especificar el nombre del @kyeframes a aplicar sobre el elemento
+  animation-duration -> Duración de la animación
+  animation-delay -> Tiempo de espera antes de arrancar la animación
+  animation-direction -> Permite alternar la animación (incio al final o final al inicio)
+    reverse -> la animación se produce hacia atrás en cada ciclo
+    alternate -> la animación invierte la animación en cada ciclo
+  animation-timing-function -> Manipula la velocidad con la que sucede la animacion
+    linear -> anima una velocidad uniforme
+    ease -> aumenta la velocidad hacia la mitad de la animación y vuelve a disminuir al final
+    ease-in -> comienza lentamente la animación aumentando hasta que se termine
+    ease-out -> comienza de forma rapida, pero a media que va terminando se hará más lento
+    ease-in-out -> comienza lento, luego rápido y al final termina lento.
+  animation-iteration-count -> Manipula el número de veces que una animación se debería ejecutar
+    infinite -> la animación se repetirá para siempre
+  animation-fill-mode -> establece cómo una animación CSS aplica a su destino antes y después de su ejecución
+    backwards -> el objetivo contendrá los estilos definidos en el primer fotograma clave
+    forwards -> el objetivo retendrá los estilos establecidos por el último fotograma clave
+    both -> el objetivo rentendrá los estilos durante el primer y último fotograma clave
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 0.1px;
+  min-height: 100vh;
+  background-image: linear-gradient(to top left, #555, #aaa);
+}
+
+.square {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: hsl(0 100% 50%);
+  animation-name: moveSquare, rotateSquare;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-direction: alternate-reverse, alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: hsl(220 100% 50%);
+  border-radius: 50%;
+  /* animation-name: moveCircle; */
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.circle:hover {
+  animation-play-state: paused;
+}
+
+/*
+  from -> 0%
+  to -> 100%
+  Si no se define el 100%, entonces tomará el estado incial del elemento para el 100%
+*/
+@keyframes moveSquare {
+  from {
+    background-color: hsl(0deg 100% 50%);
+    left: 0;
+    top: 0;
+  }
+
+  25% {
+    background-color: cyan;
+    left: 300px;
+    top: 0;
+  }
+
+  50% {
+    background-color: hsl(60deg 100% 50%);
+    left: 300px;
+    top: 300px;
+  }
+
+  75% {
+    background-color: pink;
+    left: 0;
+    top: 300px;
+  }
+
+  to {
+    background-color: hsl(220deg 100% 50%);
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes rotateSquare {
+  to {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+  
+}
+
+@keyframes moveCircle {
+  from {
+    /* transform: scale(.5); */
+    transform: translateX(0);
+    background-color: crimson
+  }
+
+  25% {
+    transform: translateX(100%);
+    background-color: salmon;
+  }
+
+  50% {
+    transform: translate(100%, 100%);
+    background-color: slateblue;
+  }
+
+  75% {
+    transform: translate(0, 100%);
+    background-color: teal;
+  }
+}
+

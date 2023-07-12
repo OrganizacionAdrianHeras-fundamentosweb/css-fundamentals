@@ -1,0 +1,183 @@
+:root {
+  --timeAnimation: 1s;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  padding-top: 0.1px;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, pink, lightgray);
+  color: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  width: 70%;
+}
+
+.box-food {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box-ice {
+  flex-basis: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-shake {
+  flex-basis: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-cake {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icecream {
+  width: 60%;
+  filter: drop-shadow(3px 3px 0 white);
+  transform: scale(0);
+  animation-name: growIcecream;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+.milshake {
+  width: 60%;
+  filter: drop-shadow(3px 3px 0 white);
+  animation-name: rotateMilshake;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+.cake {
+  margin-bottom: 1rem;
+  filter: drop-shadow(3px 3px 0 white);
+  width: 50%;
+  animation-name: moveCake;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.button {
+  width: 150px;
+  flex-basis: 30px;
+  background-color: orange;
+  outline: 5px solid hsl(60deg 100% 40%);
+  border: none;
+  font-weight: bold;
+  color: inherit;
+}
+
+.button:hover {
+  outline-offset: 5px;
+  cursor: pointer;
+}
+
+.alert {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 50px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-animation {
+  animation-name: moveAlert;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.17,.84,.43,1.01);
+  animation-duration: var(--timeAnimation);
+}
+
+@keyframes growIcecream {
+  from {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+  
+}
+
+@keyframes rotateMilshake {
+  from {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveCake {
+ from {
+  transform: translateX(0);
+ } 
+
+ 25% {
+  transform: translateX(-100%);
+ }
+
+ 50% {
+  transform: translateX(0);
+ }
+
+ 75% {
+  transform: translateX(100%);
+ }
+
+ to {
+  transform: translateX(0);
+ }
+}
+
+@keyframes moveAlert {
+  from {
+    top: -50px;
+  }
+
+  to {
+    top: 0;
+  }
+}
