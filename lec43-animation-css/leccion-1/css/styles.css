@@ -18,6 +18,28 @@ Animation CSS
     backwards -> el objetivo contendrá los estilos definidos en el primer fotograma clave
     forwards -> el objetivo retendrá los estilos establecidos por el último fotograma clave
     both -> el objetivo rentendrá los estilos durante el primer y último fotograma clave
+  
+Transform CSS
+  tranform-origin: propiedad que establece el origen de la transformación del elemento
+    One-value syntax
+      transform-origin: 2px;
+      transform-origin: bottom;
+    x-offset | y-offset
+      transform-origin: 3px 2px;
+    x-offset-keyword | y-offset
+      transform-origin: left 2px;
+    x-offset-keyword | y-offset-keyword
+      transform-origin: right top;
+    y-offset-keyword | x-offset-keyword
+      transform-origin: top right;
+    x-offset | y-offset | z-offset
+      transform-origin: 2px 30% 10px;
+    x-offset-keyword | y-offset | z-offset
+      transform-origin: left 5px -3px;
+    x-offset-keyword | y-offset-keyword | z-offset
+      transform-origin: right bottom 2cm;
+    y-offset-keyword | x-offset-keyword | z-offset
+      transform-origin: bottom right 2cm;
 */
 
 * {
@@ -101,22 +123,27 @@ body {
 @keyframes rotateSquare {
   to {
     transform: rotate(0deg);
+    transform-origin: top left;
   }
 
   25% {
     transform: rotate(90deg);
+    transform-origin: center;
   }
 
   50% {
     transform: rotate(180deg);
+    transform-origin: center;
   }
 
   75% {
     transform: rotate(270deg);
+    transform-origin: center;
   }
 
   100% {
     transform: rotate(360deg);
+    transform-origin: top right;
   }
   
 }
