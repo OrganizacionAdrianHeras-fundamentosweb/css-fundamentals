@@ -86,20 +86,40 @@ img {
 .button {
   flex: 0 1 30px;
   width: 150px;
+  display: flex;
+  align-items: center;
   background-color: orange;
   outline: 5px solid hsl(60deg 100% 40%);
   border: none;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: inherit;
+  transition-property: outline-offset;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
 }
 
 .button:hover {
-  outline-offset: 5px;
+  outline-offset: 3px;
   cursor: pointer;
 }
 
+.circle-load {
+  flex: 0 1 15px;
+  margin-left: 1rem;
+  height: 15px;
+  border: 3px solid #ccc;
+  border-left-color: white;
+  border-radius: 50%;
+}
+
+.button-text {
+  flex: 1 1 0%;
+  text-align: center;
+}
+
 .alert {
-  position: absolute;
+  position: fixed;
   top: -50px;
   left: 0;
   right: 0;
@@ -113,13 +133,25 @@ img {
   align-items: center;
 }
 
-.add-animation {
+.hide {
+  display: none;
+}
+
+.animation-movealert {
   animation-name: moveAlert;
   animation-iteration-count: 2;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(.17,.84,.43,1.01);
   animation-duration: var(--timeAnimation);
 }
+
+.animation-rotatecircleload {
+  animation-name: rotateCircleLoad;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
 
 @keyframes growIcecream {
   from {
@@ -179,5 +211,15 @@ img {
 
   to {
     top: 0;
+  }
+}
+
+@keyframes rotateCircleLoad {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
