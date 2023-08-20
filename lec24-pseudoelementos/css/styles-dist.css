@@ -16,6 +16,7 @@
       La propiead content es obligatorio y son elementos de línea por defecto.
       Son hijos del elemento al que pertenecen.
       En donde before es el primer hijo y after el último hijo
+      Obs: la propidad flex, convertíra al elemento before y after en elementos de bloque
 */
 
 * {
