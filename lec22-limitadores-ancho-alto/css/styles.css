@@ -7,6 +7,14 @@
       max-width: Indica el ancho máximo que puede alcanzar el elemento.
       min-height: Indica el alto mínimo que puede alcanzar el elemento.
       max-height: Indica el alto máximo que puede alcanzar el elemento.
+  Indicadores de valores mínimos o máximos para el ancho
+    min() -> le permite establecer el valor más pequeño de una lista de expresiones.
+      En donde el resultado de la expresión más pequeña se utiliza como valor.
+    max() -> le permite establecer el valor más grande de una lista de expresiones.
+      En donde el resultado de la expresión más pequeña se utiliza como valor.
+    Ejem:
+      width: min(50vw, 200px);
+      width: max(20vw, 400px);
 */
 
 * {
