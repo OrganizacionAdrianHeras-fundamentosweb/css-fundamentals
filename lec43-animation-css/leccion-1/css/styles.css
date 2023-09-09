@@ -18,6 +18,7 @@ Animation CSS
     backwards -> el objetivo contendrá los estilos definidos en el primer fotograma clave
     forwards -> el objetivo retendrá los estilos establecidos por el último fotograma clave
     both -> el objetivo rentendrá los estilos durante el primer y último fotograma clave
+  animation-play-state -> establece que la animación estpe corriendo (running) o en pausa (paused).
   
 Transform CSS
   tranform-origin: propiedad que establece el origen de la transformación del elemento
